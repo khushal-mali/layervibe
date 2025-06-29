@@ -33,5 +33,6 @@ export function constructMetadata({
       // creator: "@khushalmali_x",
     },
     icons,
+    metadataBase: new URL("https://layervibe.vercel.app/"),
   };
 }
