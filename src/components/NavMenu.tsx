@@ -51,7 +51,7 @@ const NavMenu = ({
         {isMenuOpen && (
           <motion.div
             ref={menuRef}
-            className="absolute top-8 -right-2 z-10 flex min-h-64 w-64 flex-col rounded-md bg-[#eeecec] p-8"
+            className="absolute top-8 -right-2 z-10 flex min-h-52 w-60 flex-col rounded-md bg-[#eeecec] p-8"
             initial={{ opacity: 0, scaleY: 0, transformOrigin: "top" }}
             animate={{
               opacity: 1,
