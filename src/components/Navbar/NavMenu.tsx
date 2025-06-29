@@ -2,8 +2,8 @@
 import { MenuIcon, MenuSquareIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
-import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "motion/react";
+import { Button } from "../ui/button";
 
 const NavMenu = ({
   navLinks,
