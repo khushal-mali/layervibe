@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
+import NavMenu from "./NavMenu";
 
 const navLinks = [
   { title: "Home", href: "/" },
@@ -15,7 +16,7 @@ const Navbar = () => {
       <div className="flex items-center">
         <Image src={"/logo.svg"} alt="logo" width={133} height={20} />
       </div>
-      <div className="flex items-center space-x-5">
+      <div className="hidden items-center space-x-5 sm:flex">
         <div className="flex items-center gap-x-1">
           {navLinks.map((link, i) => (
             <Link href={link.href} className="px-2.5" key={i}>
@@ -38,6 +39,8 @@ const Navbar = () => {
           </Button>
         </div>
       </div>
+
+      <NavMenu navLinks={navLinks} />
     </nav>
   );
 };
