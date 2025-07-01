@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { AnimatePresence, useAnimate } from "motion/react";
+import { AnimatePresence, useAnimate, motion } from "motion/react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { AspectRatio } from "../ui/aspect-ratio";
@@ -103,21 +103,58 @@ const HeroImageAnimation = () => {
       <span className="absolute top-[107px] left-[314px] z-20 h-8 w-8 rounded-full border-[3px] border-[#292C2E]" />
       <div className="relative flex h-[322px] w-[322px] items-center justify-center rounded-full bg-[#C7EB00]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          {currentStep === "1. Select image" ? (
-            <Image
-              height={32}
-              width={32}
-              src={"/hero-animation-center-1.svg"}
-              alt="Drop your image file"
-            />
-          ) : (
-            <Image
-              height={20}
-              width={20}
-              src={"/arrow-to-right.svg"}
-              alt="Drop your image file"
-            />
-          )}
+          {/* <AnimatePresence initial={false}>
+            {currentStep === "1. Select image" ? (
+              <Image
+                height={32}
+                width={32}
+                src={"/hero-animation-center-1.svg"}
+                alt="Drop your image file"
+              />
+            ) : (
+              <Image
+                height={20}
+                width={20}
+                src={"/arrow-to-right.svg"}
+                alt="Drop your image file"
+              />
+            )}
+          </AnimatePresence> */}
+
+          <AnimatePresence mode="wait" initial={false}>
+            {currentStep === "1. Select image" && (
+              <motion.div
+                key="select-image"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+              >
+                <Image
+                  height={32}
+                  width={32}
+                  src="/hero-animation-center-1.svg"
+                  alt="Drop your image file"
+                />
+              </motion.div>
+            )}
+            {currentStep === "2. Edit image" && (
+              <motion.div
+                key="edit-image"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+              >
+                <Image
+                  height={20}
+                  width={20}
+                  src="/arrow-to-right.svg"
+                  alt="Drop your image file"
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
         <AspectRatio
           ratio={290 / 229}
