@@ -34,6 +34,7 @@ const HeroImageAnimation = () => {
             { opacity: 0, x: 0, y: 0 },
             { duration: 0 },
           ],
+          ["#hero-animation-pause", { opacity: 0 }, { duration: 0 }],
         ]);
 
         setCurrentStep(() => "1. Select image");
@@ -85,10 +86,12 @@ const HeroImageAnimation = () => {
         await new Promise((resolve) => setTimeout(resolve, 200));
 
         setCurrentStep(() => "3. Turn into video");
+        await animate([
+          ["#hero-animation-pause", { opacity: 1 }, { delay: 0.1 }],
+        ]);
 
         // Pause before restarting
         await new Promise((resolve) => setTimeout(resolve, 2500));
-        // setCurrentStep("1. Select image");
       }
     };
 
@@ -103,24 +106,6 @@ const HeroImageAnimation = () => {
       <span className="absolute top-[107px] left-[314px] z-20 h-8 w-8 rounded-full border-[3px] border-[#292C2E]" />
       <div className="relative flex h-[322px] w-[322px] items-center justify-center rounded-full bg-[#C7EB00]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          {/* <AnimatePresence initial={false}>
-            {currentStep === "1. Select image" ? (
-              <Image
-                height={32}
-                width={32}
-                src={"/hero-animation-center-1.svg"}
-                alt="Drop your image file"
-              />
-            ) : (
-              <Image
-                height={20}
-                width={20}
-                src={"/arrow-to-right.svg"}
-                alt="Drop your image file"
-              />
-            )}
-          </AnimatePresence> */}
-
           <AnimatePresence mode="wait" initial={false}>
             {currentStep === "1. Select image" && (
               <motion.div
@@ -156,6 +141,7 @@ const HeroImageAnimation = () => {
             )}
           </AnimatePresence>
         </div>
+
         <AspectRatio
           ratio={290 / 229}
           className="z-20 h-[290px] w-[229px] translate-x-12 -translate-y-4 overflow-hidden rounded-md opacity-0"
@@ -172,7 +158,7 @@ const HeroImageAnimation = () => {
           id="hero-animation-image-postprocessed"
           className="z-20 h-[290px] w-[229px] -translate-x-0 -translate-y-0 rounded-md"
         >
-          <AnimatePresence initial={false}>
+          <AnimatePresence mode="wait">
             {currentStep !== "3. Turn into video" ? (
               <AspectRatio
                 ratio={290 / 229}
@@ -201,13 +187,17 @@ const HeroImageAnimation = () => {
                   onError={() => console.error("Failed to load video")}
                   aria-label="Post-processed animation video"
                 ></video>
-                <Image
-                  src={"/hero-animation-pause.svg"}
-                  alt="Pause symbol"
-                  height={32}
-                  width={32}
-                  className="absolute right-3 bottom-3 z-40"
-                />
+
+                <div
+                  id="hero-animation-pause"
+                  className="absolute right-3 bottom-3 z-50 h-8 w-8"
+                >
+                  <Image
+                    src={"/hero-animation-pause.svg"}
+                    fill
+                    alt="Pause symbol"
+                  />
+                </div>
               </AspectRatio>
             )}
           </AnimatePresence>
