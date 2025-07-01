@@ -161,7 +161,7 @@ const HeroImageAnimation = () => {
           id="hero-animation-image-postprocessed"
           className="z-20 h-[290px] w-[229px] -translate-x-0 -translate-y-0 rounded-md"
         >
-          <AnimatePresence mode="sync">
+          <AnimatePresence mode="popLayout">
             {currentStep !== "3. Turn into video" ? (
               <AspectRatio
                 ratio={290 / 229}
@@ -194,12 +194,15 @@ const HeroImageAnimation = () => {
 
                 <div
                   id="hero-animation-pause"
-                  className="absolute right-3 bottom-3 z-50 h-8 w-8"
+                  className="absolute right-3 bottom-3 z-30 h-8 w-8"
                 >
                   <Image
                     src={"/hero-animation-pause.svg"}
                     fill
                     priority
+                    style={{
+                      opacity: currentStep === "3. Turn into video" ? 1 : 0,
+                    }}
                     alt="Pause symbol"
                   />
                 </div>
@@ -209,7 +212,9 @@ const HeroImageAnimation = () => {
         </div>
       </div>
 
-      <div className="absolute right-1/2 bottom-0 z-20 flex translate-x-1/2 items-center gap-3 rounded-full bg-white px-4 py-2 shadow-sm shadow-[#1015770D]">
+      <div className="absolute right-0 bottom-0 z-40 h-20 w-full bg-[#F7F8F8]"></div>
+
+      <div className="absolute right-1/2 bottom-0 z-50 flex translate-x-1/2 items-center gap-3 rounded-full bg-white px-4 py-2 shadow-sm shadow-[#1015770D]">
         {animationSteps.map((step, index) => (
           <React.Fragment key={index}>
             <p
