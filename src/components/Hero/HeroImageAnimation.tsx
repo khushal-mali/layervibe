@@ -120,6 +120,7 @@ const HeroImageAnimation = () => {
                   width={32}
                   src="/hero-animation-center-1.svg"
                   alt="Drop your image file"
+                  priority
                 />
               </motion.div>
             )}
@@ -134,6 +135,7 @@ const HeroImageAnimation = () => {
                 <Image
                   height={20}
                   width={20}
+                  priority
                   src="/arrow-to-right.svg"
                   alt="Drop your image file"
                 />
@@ -149,6 +151,7 @@ const HeroImageAnimation = () => {
         >
           <Image
             fill
+            priority
             src={"/hero-animation-image-preprocessed.jpg"}
             alt="Drop your image file"
           />
@@ -158,7 +161,7 @@ const HeroImageAnimation = () => {
           id="hero-animation-image-postprocessed"
           className="z-20 h-[290px] w-[229px] -translate-x-0 -translate-y-0 rounded-md"
         >
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="sync">
             {currentStep !== "3. Turn into video" ? (
               <AspectRatio
                 ratio={290 / 229}
@@ -169,6 +172,7 @@ const HeroImageAnimation = () => {
                   fill
                   src={"/hero-animation-image-postprocessed.png"}
                   alt="Drop your image file"
+                  priority
                   className="rounded-md"
                 />
               </AspectRatio>
@@ -195,6 +199,7 @@ const HeroImageAnimation = () => {
                   <Image
                     src={"/hero-animation-pause.svg"}
                     fill
+                    priority
                     alt="Pause symbol"
                   />
                 </div>
