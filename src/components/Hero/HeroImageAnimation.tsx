@@ -187,7 +187,6 @@ const HeroImageAnimation = () => {
                 />
               </AspectRatio>
             ) : (
-              // ratio={290 / 229}
               <AspectRatio
                 key="postprocessed-video"
                 ratio={290 / 229}

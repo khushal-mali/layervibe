@@ -4,12 +4,12 @@ import { constructMetadata } from "@/lib/utils";
 
 const fontInter = Inter({
   variable: "--font-inter",
-  // subsets: ["latin"],
+  subsets: ["latin"],
 });
 
 const fontMontserrat = Montserrat({
   variable: "--font-montserrat",
-  // subsets: ["latin"],
+  subsets: ["latin"],
 });
 
 export const metadata = constructMetadata();
