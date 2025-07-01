@@ -1,10 +1,11 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { AnimatePresence, useAnimate, motion } from "motion/react";
+import { AnimatePresence, motion, useAnimate } from "motion/react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { AspectRatio } from "../ui/aspect-ratio";
+import useWindowSize from "@/hooks/useWindowSize";
 
 const animationSteps = [
   "1. Select image",
@@ -17,6 +18,7 @@ const HeroImageAnimation = () => {
     (typeof animationSteps)[number]
   >(animationSteps[0]);
   const [scope, animate] = useAnimate();
+  const { width } = useWindowSize();
 
   useEffect(() => {
     const animationSequence = async () => {
@@ -41,7 +43,11 @@ const HeroImageAnimation = () => {
         await animate([
           [
             "#hero-animation-1",
-            { opacity: [0, 1], y: [0, -200], x: [0, -170] },
+            {
+              opacity: [0, 1],
+              y: [0, width! > 1200 ? -200 : width! > 1000 ? -170 : -150],
+              x: [0, width! > 1200 ? -170 : width! > 1000 ? -130 : -80],
+            },
             { duration: 0.4 },
           ],
           [
@@ -52,15 +58,16 @@ const HeroImageAnimation = () => {
           ["#hero-animation-1", { opacity: 0 }],
         ]);
 
+        setCurrentStep(() => "2. Edit image");
+
         await animate([
           [
             "#hero-animation-image-preprocessed",
-            { x: -140 },
-            { duration: 0.4, ease: "easeInOut" },
+            { x: width! > 1200 ? -120 : -95 },
+            { duration: 0.4, ease: "easeIn" },
           ],
         ]);
 
-        setCurrentStep(() => "2. Edit image");
         animate([
           [
             "#hero-animation-image-preprocessed",
@@ -79,11 +86,10 @@ const HeroImageAnimation = () => {
         await animate([
           [
             "#hero-animation-image-postprocessed",
-            { x: -140 },
+            { x: width! > 1200 ? -140 : -100 },
             { duration: 0.4, delay: 0.4 + 0.2 },
           ],
         ]);
-        await new Promise((resolve) => setTimeout(resolve, 200));
 
         setCurrentStep(() => "3. Turn into video");
         await animate([
@@ -96,24 +102,24 @@ const HeroImageAnimation = () => {
     };
 
     animationSequence();
-  }, [animate]);
+  }, [animate, width]);
 
   return (
     <div
       ref={scope}
       className="relative flex h-full w-[500px] items-center justify-center"
     >
-      <span className="absolute top-[107px] left-[314px] z-20 h-8 w-8 rounded-full border-[3px] border-[#292C2E]" />
-      <div className="relative flex h-[322px] w-[322px] items-center justify-center rounded-full bg-[#C7EB00]">
+      <div className="relative flex h-56 w-56 items-center justify-center rounded-full bg-[#C7EB00] min-[1200px]:h-[322px] min-[1200px]:w-[322px]">
+        <span className="absolute top-2 right-8 z-20 h-8 w-8 rounded-full border-[3px] border-[#292C2E] min-[1200px]:right-18" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <AnimatePresence mode="wait" initial={false}>
+          <AnimatePresence mode="sync" initial={false}>
             {currentStep === "1. Select image" && (
               <motion.div
                 key="select-image"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
+                transition={{ duration: 0.1, ease: "easeIn" }}
               >
                 <Image
                   height={32}
@@ -130,7 +136,7 @@ const HeroImageAnimation = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
+                transition={{ duration: 0.1, ease: "easeIn" }}
               >
                 <Image
                   height={20}
@@ -146,7 +152,7 @@ const HeroImageAnimation = () => {
 
         <AspectRatio
           ratio={290 / 229}
-          className="z-20 h-[290px] w-[229px] translate-x-12 -translate-y-4 overflow-hidden rounded-md opacity-0"
+          className="z-20 h-[200px] w-[158px] translate-x-8 -translate-y-4 overflow-hidden rounded-md opacity-0 min-[1200px]:h-[290px] min-[1200px]:w-[229px] min-[1200px]:translate-x-12"
           id="hero-animation-image-preprocessed"
         >
           <Image
@@ -159,14 +165,14 @@ const HeroImageAnimation = () => {
 
         <div
           id="hero-animation-image-postprocessed"
-          className="z-20 h-[290px] w-[229px] -translate-x-0 -translate-y-0 rounded-md"
+          className="z-20 h-[200px] w-[158px] -translate-y-1 rounded-md opacity-0 min-[1200px]:h-[290px] min-[1200px]:w-[229px]"
         >
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence mode="sync">
             {currentStep !== "3. Turn into video" ? (
               <AspectRatio
                 ratio={290 / 229}
                 key="postprocessed-image"
-                className="h-[290px] w-[229px] rounded-md"
+                className="h-[200px] w-[158px] rounded-md min-[1200px]:h-[290px] min-[1200px]:w-[229px]"
               >
                 <Image
                   fill
@@ -180,7 +186,7 @@ const HeroImageAnimation = () => {
               <AspectRatio
                 key="postprocessed-video"
                 ratio={290 / 229}
-                className="relative h-[290px] w-[229px]"
+                className="relative h-[200px] w-[158px] min-[1200px]:h-[290px] min-[1200px]:w-[229px]"
               >
                 <video
                   autoPlay
@@ -212,14 +218,14 @@ const HeroImageAnimation = () => {
         </div>
       </div>
 
-      <div className="absolute right-0 bottom-0 z-40 h-20 w-full bg-[#F7F8F8]"></div>
+      <div className="absolute right-0 bottom-5 z-40 h-20 w-full bg-[#F7F8F8]"></div>
 
-      <div className="absolute right-1/2 bottom-0 z-50 flex translate-x-1/2 items-center gap-3 rounded-full bg-white px-4 py-2 shadow-sm shadow-[#1015770D]">
+      <div className="absolute right-1/2 bottom-0 z-50 flex translate-x-1/2 items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm shadow-[#1015770D] min-[1200px]:gap-3">
         {animationSteps.map((step, index) => (
           <React.Fragment key={index}>
             <p
               className={cn(
-                "font-inter text-sm leading-[130%] font-medium text-nowrap transition-colors duration-300 ease-in-out",
+                "font-inter text-xs leading-[130%] font-medium text-nowrap transition-colors duration-300 ease-in-out min-[1200px]:text-sm",
                 currentStep === step ? "text-[#C7EB00]" : "text-[#363B3F]",
               )}
             >
@@ -232,14 +238,16 @@ const HeroImageAnimation = () => {
         ))}
       </div>
 
-      <Image
-        src={"/hero-animation-drop-image-cursor.svg"}
-        alt="drop image"
+      <div
         id="hero-animation-1"
-        height={88}
-        width={103}
-        className="absolute right-2 bottom-0 z-10 opacity-0"
-      />
+        className="absolute right-2 bottom-0 z-10 h-[88px] w-[103px] opacity-0"
+      >
+        <Image
+          src={"/hero-animation-drop-image-cursor.svg"}
+          alt="drop image"
+          fill
+        />
+      </div>
     </div>
   );
 };
