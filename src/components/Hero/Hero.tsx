@@ -16,7 +16,7 @@ const Hero = () => {
             edit images and transform them into videos without lost the
             importante details.
           </p>
-          <Button className="w-fit cursor-pointer rounded-[10px] bg-[#C7EB00] px-6 py-3 uppercase">
+          <Button className="w-fit cursor-pointer rounded-[10px] bg-[#C7EB00] px-6 py-3 leading-[150%] font-medium uppercase">
             GET STARTED FREE
           </Button>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { AnimatePresence, useAnimate, motion } from "motion/react";
+import { AnimatePresence, useAnimate } from "motion/react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { AspectRatio } from "../ui/aspect-ratio";
@@ -82,7 +82,7 @@ const HeroImageAnimation = () => {
             { duration: 0.4, delay: 0.4 + 0.2 },
           ],
         ]);
-        await new Promise((resolve) => setTimeout(resolve, 500));
+        await new Promise((resolve) => setTimeout(resolve, 200));
 
         setCurrentStep(() => "3. Turn into video");
 
@@ -131,39 +131,51 @@ const HeroImageAnimation = () => {
           />
         </AspectRatio>
 
-        <AnimatePresence>
-          {currentStep !== "3. Turn into video" ? (
-            <AspectRatio
-              ratio={290 / 229}
-              key="postprocessed-image"
-              className="z-20 h-[290px] w-[229px] translate-x-7 -translate-y-4 overflow-hidden rounded-md opacity-0"
-              id="hero-animation-image-postprocessed"
-            >
-              <Image
-                fill
-                src={"/hero-animation-image-postprocessed.png"}
-                alt="Drop your image file"
-              />
-            </AspectRatio>
-          ) : (
-            // ratio={290 / 229}
-            <AspectRatio
-              key="postprocessed-video"
-              ratio={290 / 229}
-              className="z-20 h-[290px] w-[229px] -translate-x-28 -translate-y-4 overflow-hidden rounded-md"
-            >
-              <video
-                autoPlay
-                muted
-                loop
-                src="/hero-animation-image-postprocessed-mp4.mp4"
-                className="h-full w-full object-cover"
-                onError={() => console.error("Failed to load video")}
-                aria-label="Post-processed animation video"
-              ></video>
-            </AspectRatio>
-          )}
-        </AnimatePresence>
+        <div
+          id="hero-animation-image-postprocessed"
+          className="z-20 h-[290px] w-[229px] -translate-x-0 -translate-y-0 rounded-md"
+        >
+          <AnimatePresence initial={false}>
+            {currentStep !== "3. Turn into video" ? (
+              <AspectRatio
+                ratio={290 / 229}
+                key="postprocessed-image"
+                className="h-[290px] w-[229px] rounded-md"
+              >
+                <Image
+                  fill
+                  src={"/hero-animation-image-postprocessed.png"}
+                  alt="Drop your image file"
+                  className="rounded-md"
+                />
+              </AspectRatio>
+            ) : (
+              // ratio={290 / 229}
+              <AspectRatio
+                key="postprocessed-video"
+                ratio={290 / 229}
+                className="relative h-[290px] w-[229px]"
+              >
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  src="/hero-animation-image-postprocessed-mp4.mp4"
+                  className="h-full w-full rounded-md object-cover"
+                  onError={() => console.error("Failed to load video")}
+                  aria-label="Post-processed animation video"
+                ></video>
+                <Image
+                  src={"/hero-animation-pause.svg"}
+                  alt="Pause symbol"
+                  height={32}
+                  width={32}
+                  className="absolute right-3 bottom-3 z-40"
+                />
+              </AspectRatio>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
 
       <div className="absolute right-1/2 bottom-0 z-20 flex translate-x-1/2 items-center gap-3 rounded-full bg-white px-4 py-2 shadow-sm shadow-[#1015770D]">
