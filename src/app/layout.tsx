@@ -1,10 +1,15 @@
-import { Inter } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { constructMetadata } from "@/lib/utils";
 
-const geistSans = Inter({
+const fontInter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
+  // subsets: ["latin"],
+});
+
+const fontMontserrat = Montserrat({
+  variable: "--font-montserrat",
+  // subsets: ["latin"],
 });
 
 export const metadata = constructMetadata();
@@ -16,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} antialiased`}>{children}</body>
+      <body
+        className={`${fontInter.variable} ${fontMontserrat.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
