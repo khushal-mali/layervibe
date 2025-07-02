@@ -20,6 +20,14 @@ const HeroImageAnimation = () => {
   const [scope, animate] = useAnimate();
   const { width } = useWindowSize();
 
+  const screenWidth = width!;
+
+  console.log(
+    "HeroImageAnimation:",
+    new Error().stack?.split("\n")[1].trim(),
+    screenWidth,
+  );
+
   useEffect(() => {
     const animationSequence = async () => {
       while (true) {
@@ -45,8 +53,14 @@ const HeroImageAnimation = () => {
             "#hero-animation-1",
             {
               opacity: [0, 1],
-              y: [0, width! > 1200 ? -200 : width! > 1000 ? -170 : -150],
-              x: [0, width! > 1200 ? -170 : width! > 1000 ? -130 : -80],
+              y: [
+                0,
+                screenWidth > 1200 ? -200 : screenWidth > 1000 ? -170 : -150,
+              ],
+              x: [
+                0,
+                screenWidth > 1200 ? -170 : screenWidth > 1000 ? -130 : -80,
+              ],
             },
             { duration: 0.4 },
           ],
@@ -63,7 +77,9 @@ const HeroImageAnimation = () => {
         await animate([
           [
             "#hero-animation-image-preprocessed",
-            { x: width! > 1200 ? -120 : -95 },
+            {
+              x: screenWidth > 1200 ? -135 : -95,
+            },
             { duration: 0.4, ease: "easeIn" },
           ],
         ]);
@@ -86,15 +102,15 @@ const HeroImageAnimation = () => {
         await animate([
           [
             "#hero-animation-image-postprocessed",
-            { x: width! > 1200 ? -140 : -100 },
+            { x: screenWidth > 1200 ? -140 : -100 },
             { duration: 0.4, delay: 0.4 + 0.2 },
           ],
         ]);
 
         setCurrentStep(() => "3. Turn into video");
-        await animate([
-          ["#hero-animation-pause", { opacity: 1 }, { delay: 0.1 }],
-        ]);
+        // await animate([
+        //   ["#hero-animation-pause", { opacity: 1 }, { delay: 0.1 }],
+        // ]);
 
         // Pause before restarting
         await new Promise((resolve) => setTimeout(resolve, 2500));
@@ -102,12 +118,12 @@ const HeroImageAnimation = () => {
     };
 
     animationSequence();
-  }, [animate, width]);
+  }, [animate, screenWidth]);
 
   return (
     <div
       ref={scope}
-      className="relative flex h-full w-[500px] items-center justify-center"
+      className="relative order-2 flex h-[400px] w-[300px] items-center justify-center min-[800px]:order-1 min-[800px]:h-full min-[800px]:w-[500px]"
     >
       <div className="relative flex h-56 w-56 items-center justify-center rounded-full bg-[#C7EB00] min-[1200px]:h-[322px] min-[1200px]:w-[322px]">
         <span className="absolute top-2 right-8 z-20 h-8 w-8 rounded-full border-[3px] border-[#292C2E] min-[1200px]:right-18" />
@@ -165,7 +181,7 @@ const HeroImageAnimation = () => {
 
         <div
           id="hero-animation-image-postprocessed"
-          className="z-20 h-[200px] w-[158px] -translate-y-1 rounded-md opacity-0 min-[1200px]:h-[290px] min-[1200px]:w-[229px]"
+          className="z-20 h-[200px] w-[158px] -translate-y-1 rounded-md opacity-0 min-[1200px]:h-[290px] min-[1200px]:w-[229px] min-[1200px]:-translate-y-0"
         >
           <AnimatePresence mode="sync">
             {currentStep !== "3. Turn into video" ? (
@@ -218,7 +234,47 @@ const HeroImageAnimation = () => {
         </div>
       </div>
 
-      <div className="absolute right-0 bottom-5 z-40 h-20 w-full bg-[#F7F8F8]"></div>
+      <div className="absolute right-0 bottom-5 z-40 flex h-14 w-full items-center justify-around bg-[#F7F8F8] min-[800px]:h-20">
+        <AnimatePresence mode="wait">
+          {currentStep === "2. Edit image" && (
+            <>
+              <motion.div
+                key={"step 2.1"}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, ease: "easeIn" }}
+                className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 leading-[130%] min-[1200px]:-translate-y-2 min-[1200px]:self-auto"
+              >
+                Before
+              </motion.div>
+              <motion.div
+                key={"step 2.2"}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, ease: "easeIn" }}
+                className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 leading-[130%] min-[1200px]:-translate-y-2 min-[1200px]:self-auto"
+              >
+                After
+              </motion.div>
+            </>
+          )}
+
+          {currentStep === "3. Turn into video" && (
+            <motion.div
+              key={"step 3"}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.4, ease: "easeIn" }}
+              className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 leading-[130%] font-medium min-[1200px]:-translate-y-2 min-[1200px]:self-auto"
+            >
+              Video created by image edited ✨
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       <div className="absolute right-1/2 bottom-0 z-50 flex translate-x-1/2 items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm shadow-[#1015770D] min-[1200px]:gap-3">
         {animationSteps.map((step, index) => (
