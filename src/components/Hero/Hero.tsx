@@ -3,7 +3,7 @@ import HeroImageAnimation from "./HeroImageAnimation";
 
 const Hero = () => {
   return (
-    <div className="w-full px-6 pt-[120px] min-[800px]:h-screen min-[800px]:pt-[100px]">
+    <div className="relative w-full overflow-x-hidden px-6 pt-[120px] pb-10 min-[800px]:h-screen min-[800px]:pt-[100px]">
       <div className="mx-auto flex flex-col items-center min-[500px]:px-[10px] min-[800px]:h-[450px] min-[800px]:max-w-[1250px] min-[800px]:flex-row min-[800px]:gap-14 min-[1200px]:h-[524px]">
         <HeroImageAnimation />
 
@@ -22,6 +22,10 @@ const Hero = () => {
             GET STARTED FREE
           </Button>
         </div>
+      </div>
+
+      <div className="absolute right-2 -bottom-4 h-[124px] w-[124px] translate-x-1/2 rounded-full bg-[#DFFF19]">
+        <div className="h-8 w-8 rounded-full border-[2px] border-black" />
       </div>
     </div>
   );
