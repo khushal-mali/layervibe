@@ -22,12 +22,6 @@ const HeroImageAnimation = () => {
 
   const screenWidth = width!;
 
-  console.log(
-    "HeroImageAnimation:",
-    new Error().stack?.split("\n")[1].trim(),
-    screenWidth,
-  );
-
   useEffect(() => {
     const animationSequence = async () => {
       while (true) {
