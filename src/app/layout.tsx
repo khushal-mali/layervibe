@@ -1,6 +1,7 @@
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { constructMetadata } from "@/lib/utils";
+import LenisProvider from "@/components/Lenis/LenisProvider";
 
 const fontInter = Inter({
   variable: "--font-inter",
@@ -21,11 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${fontInter.variable} ${fontMontserrat.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <LenisProvider>
+        <body
+          className={`${fontInter.variable} ${fontMontserrat.variable} antialiased`}
+        >
+          {children}
+        </body>
+      </LenisProvider>
     </html>
   );
 }
