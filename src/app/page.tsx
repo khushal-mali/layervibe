@@ -1,11 +1,19 @@
 import Hero from "@/components/Hero/Hero";
 import Navbar from "@/components/Navbar/Navbar";
 import VideoSection from "@/components/VideoSection/VideoSection";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
+
+const imageVariation = [
+  { imageUrl: "/features-image-variation-1.svg", text: "Original" },
+  { imageUrl: "/features-image-variation-2.svg", text: "Regatta color" },
+  { imageUrl: "/features-image-variation-3.svg", text: "Background" },
+  { imageUrl: "/features-image-variation-4.svg", text: "Clothes type" },
+];
 
 const Home = () => {
   return (
-    <div className="min-h-screen overflow-hidden bg-[#F7F8F8]">
+    <div className="mb-80 min-h-screen overflow-hidden bg-[#F7F8F8]">
       <Navbar />
       <Hero />
       <VideoSection />
@@ -44,7 +52,7 @@ const Home = () => {
                     <h5 className="font-inter text-[20px] leading-[150%] font-semibold text-white">
                       Turn images into engaging videos.
                     </h5>
-                    <p className="font-inter text-sm leading-[130%] font-normal text-[#E6E8EA]">
+                    <p className="font-inter text-sm leading-[130%] font-normal tracking-normal text-[#E6E8EA]">
                       Automatically create short videos from edited images,
                       perfect for social media, ads, or ynamic catalogues.
                     </p>
@@ -70,7 +78,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="flex h-full flex-col gap-8 rounded-md bg-cyan-400 px-32 py-4">
+              <div className="mx-auto flex h-full max-w-[550px] flex-col gap-8 rounded-md bg-cyan-400 py-4">
                 <div className="flex flex-col gap-2">
                   <h3 className="font-inter text-center text-[20px] leading-[150%] font-semibold text-[#131416]">
                     Test multiple variations with masks.
@@ -83,12 +91,30 @@ const Home = () => {
                 </div>
 
                 <div className="mx-auto flex gap-3">
-                  {Array.from({ length: 4 }, (_, i) => (
+                  {imageVariation.map(({ imageUrl, text }, i) => (
                     <div
                       key={i}
-                      className="flex h-[136px] w-[83px] flex-col gap-2.5 bg-indigo-400"
+                      className="flex h-[136px] w-[88px] flex-col gap-2.5 bg-indigo-400"
                     >
-                      <div className="relative aspect-[88/108] rounded-[10px] bg-orange-400"></div>
+                      <div className="relative aspect-[88/108] overflow-hidden rounded-[10px] bg-[#ECB006]">
+                        <Image
+                          fill
+                          src={imageUrl}
+                          alt={text}
+                          className="object-cover"
+                        />
+                      </div>
+
+                      <div
+                        className={cn(
+                          "font-inter mx-auto h-[19px] rounded-xl border-[1px] px-2 py-[2px] text-center text-[10px] leading-[150%] font-medium tracking-wide",
+                          text === "Original"
+                            ? "border-[#EDFF50] bg-[#F8FF90] text-[#708B00]"
+                            : "border-[#DEE1E3] bg-[#E6E8EA] text-[#363B3F]",
+                        )}
+                      >
+                        {text}
+                      </div>
                     </div>
                   ))}
                 </div>
