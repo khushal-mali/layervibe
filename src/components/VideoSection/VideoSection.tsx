@@ -19,7 +19,7 @@ const VideoSection = () => {
         />
       </div>
 
-      <div className="absolute bottom-0 flex translate-y-8 items-center justify-center rounded-md border-[1px] border-[#363B3F] px-3 py-2 text-[#363B3F] max-sm:translate-y-4">
+      <div className="absolute bottom-0 flex translate-y-8 cursor-pointer items-center justify-center gap-0.5 rounded-md border-[1px] border-[#363B3F] px-3 py-2 text-[#363B3F] transition-shadow duration-300 hover:shadow-md active:shadow-none max-sm:translate-y-4">
         <Image
           width={18}
           height={18}

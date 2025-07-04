@@ -131,7 +131,7 @@
       transform: skewX(20deg);
     }
     50% {
-      transform: skewX(35deg);
+      transform: skewX(25deg);
     }
     70% {
       transform: skewX(-20deg);
