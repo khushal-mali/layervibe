@@ -23,10 +23,7 @@ const Hero = () => {
           </Button>
         </div>
       </div>
-      {/* 
-      <div className="absolute right-2 bottom-0 z-50 h-[100px] w-[100px] translate-x-1/2 rounded-full bg-[#DFFF19] min-[800px]:bottom-0 min-[800px]:h-[124px] min-[800px]:w-[124px]">
-        <div className="h-8 w-8 rounded-full border-[2px] border-black" />
-      </div> */}
+    
     </div>
   );
 };
