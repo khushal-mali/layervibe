@@ -120,3 +120,25 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  @keyframes skew-glow {
+    0%,
+    100% {
+      transform: skewX(0deg);
+    }
+    30% {
+      transform: skewX(20deg);
+    }
+    50% {
+      transform: skewX(35deg);
+    }
+    70% {
+      transform: skewX(-20deg);
+    }
+  }
+
+  .animate-skew-glow {
+    animation: skew-glow 4s ease-in-out infinite;
+  }
+}
