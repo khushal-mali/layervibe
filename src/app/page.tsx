@@ -24,9 +24,9 @@ const Home = () => {
             More than images, time optimization.
           </p>
 
-          <div className="mx-auto flex h-[589px] w-full gap-4">
-            <div className="h-full max-w-[416px] flex-1 overflow-hidden rounded-md bg-white shadow-sm">
-              <div className="relative aspect-[416/449]">
+          <div className="mx-auto flex h-fit w-full gap-4 max-[900px]:flex-col min-[900px]:h-[589px]">
+            <div className="flex h-full flex-1 overflow-hidden rounded-md bg-white shadow-sm max-[460px]:flex-col min-[900px]:max-w-[416px] min-[900px]:flex-col">
+              <div className="relative aspect-[416/449] h-[449px] w-[416px] max-[900px]:aspect-[312/336] max-[900px]:h-[336px] max-[900px]:w-[312px] max-[600px]:aspect-[208/224] max-[600px]:h-[224px] max-[600px]:w-[208px] max-[460px]:aspect-[416/449] max-[460px]:h-full max-[460px]:w-full">
                 <Image
                   fill
                   src={"/features-section-1-image.svg"}
@@ -34,7 +34,7 @@ const Home = () => {
                 />
               </div>
 
-              <div className="h-full gap-1.5 p-6">
+              <div className="my-auto flex h-full flex-col justify-center gap-1.5 p-6">
                 <h2 className="font-inter text-[20px] leading-[150%] font-semibold text-[#131416]">
                   Edit with surgical precision.
                 </h2>
@@ -45,21 +45,22 @@ const Home = () => {
                 </p>
               </div>
             </div>
+
             <div className="flex h-full flex-1 flex-col gap-4">
               <div className="flex h-full w-full overflow-hidden rounded-md shadow-sm">
-                <div className="flex h-full w-1/2 items-center justify-center bg-[#1A1C1E]">
-                  <div className="max-w-[343px] space-x-2">
-                    <h5 className="font-inter text-[20px] leading-[150%] font-semibold text-white">
+                <div className="flex w-1/2 flex-1 items-center justify-center bg-[#1A1C1E] max-[900px]:h-[288px]">
+                  <div className="mx-2 flex h-full flex-col justify-center space-y-2 min-[1000px]:max-w-[250px] min-[1100px]:max-w-[300px] xl:max-w-[343px]">
+                    <h5 className="font-inter leading-[150%] font-semibold text-white max-sm:text-base lg:text-lg xl:text-xl">
                       Turn images into engaging videos.
                     </h5>
-                    <p className="font-inter text-sm leading-[130%] font-normal tracking-normal text-[#E6E8EA]">
+                    <p className="font-inter text-sm leading-[130%] font-normal tracking-normal text-[#E6E8EA] max-sm:text-[12px]">
                       Automatically create short videos from edited images,
                       perfect for social media, ads, or ynamic catalogues.
                     </p>
                   </div>
                 </div>
 
-                <div className="relative h-[288px] w-full max-w-[409px] bg-gradient-to-r from-[#1A1C1E00] to-[#1A1C1E]">
+                <div className="relative h-[288px] w-full max-w-[409px] flex-1 bg-gradient-to-r from-[#1A1C1E00] to-[#1A1C1E]">
                   <Image
                     height={290}
                     width={409}
@@ -79,7 +80,7 @@ const Home = () => {
               </div>
               <div className="h-full w-full rounded-md bg-white shadow-sm">
                 <div className="mx-auto flex h-full max-w-[550px] flex-col gap-8 py-4">
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-2 px-2">
                     <h3 className="font-inter text-center text-[20px] leading-[150%] font-semibold text-[#131416]">
                       Test multiple variations with masks.
                     </h3>
@@ -90,7 +91,7 @@ const Home = () => {
                     </p>
                   </div>
 
-                  <div className="mx-auto flex gap-3">
+                  <div className="mx-auto flex flex-wrap justify-center gap-3">
                     {imageVariation.map(({ imageUrl, text }, i) => (
                       <div
                         key={i}
