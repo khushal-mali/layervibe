@@ -3,7 +3,7 @@ import HeroImageAnimation from "./HeroImageAnimation";
 
 const Hero = () => {
   return (
-    <div className="relative w-full overflow-x-hidden pt-[120px] pb-10 min-[800px]:h-screen min-[800px]:pt-[100px]">
+    <div className="relative w-full overflow-hidden overflow-x-hidden pt-[120px] pb-10 min-[800px]:h-screen min-[800px]:pt-[100px]">
       <div className="mx-auto flex flex-col items-center min-[500px]:px-[10px] min-[800px]:h-[450px] min-[800px]:max-w-[1250px] min-[800px]:flex-row min-[800px]:gap-14 min-[1200px]:h-[524px]">
         <HeroImageAnimation />
 

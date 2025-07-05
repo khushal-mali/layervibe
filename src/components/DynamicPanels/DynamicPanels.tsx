@@ -54,7 +54,7 @@ const DynamicPanels = () => {
   return (
     <section
       id="dynamic"
-      className="container mx-auto mb-20 space-y-10 max-w-[1250px] px-6 min-[800px]:mb-30"
+      className="container mx-auto mb-20 max-w-[1250px] space-y-10 max-[1280px]:px-6 min-[800px]:mb-30"
     >
       <div className="mb-12 space-y-2.5 text-center">
         <h2 className="font-montserrat text-center text-2xl leading-[120%] font-semibold tracking-[-1%] text-[#1A1C1E]">
