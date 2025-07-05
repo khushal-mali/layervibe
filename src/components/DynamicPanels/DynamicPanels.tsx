@@ -52,8 +52,11 @@ const DynamicPanels = () => {
   };
 
   return (
-    <section id="dynamic" className="container mx-auto max-w-[1250px] px-6">
-      <div className="mb-12 text-center">
+    <section
+      id="dynamic"
+      className="container mx-auto mb-20 max-w-[1250px] px-6 min-[800px]:mb-30"
+    >
+      <div className="mb-12 space-y-2.5 text-center">
         <h2 className="font-montserrat text-center text-2xl leading-[120%] font-semibold tracking-[-1%] text-[#1A1C1E]">
           Never spend hours looking for a photo again.
         </h2>
