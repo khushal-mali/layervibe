@@ -1,3 +1,4 @@
+import DynamicPanels from "@/components/DynamicPanels/DynamicPanels";
 import FeatureSection from "@/components/FeatureSeaction/FeatureSection";
 import Hero from "@/components/Hero/Hero";
 import Navbar from "@/components/Navbar/Navbar";
@@ -10,6 +11,7 @@ const Home = () => {
       <Hero />
       <VideoSection />
       <FeatureSection />
+      <DynamicPanels />
     </div>
   );
 };

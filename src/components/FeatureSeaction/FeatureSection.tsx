@@ -11,7 +11,7 @@ const imageVariation = [
 
 const FeatureSection = () => {
   return (
-    <div className="font-montserrat mb-20 flex items-center justify-center px-6 text-2xl leading-[120%] font-semibold tracking-[-1]">
+    <div className="font-montserrat mb-20 flex items-center justify-center px-6 text-2xl leading-[120%] font-semibold tracking-[-1] min-[800px]:mb-30">
       <div className="flex-1 space-y-8 min-[1000px]:max-w-[1250px]">
         <p className="mx-auto max-[800px]:text-center">
           More than images, time optimization.
