@@ -28,21 +28,21 @@ const SwapProductFeature = () => {
   ];
 
   return (
-    <section id="features" className="mx-auto mb-20 max-w-[1250px] md:mb-30">
+    <section id="features" className="mx-auto max-w-[1250px] pb-20 md:mb-30">
       {/* <div className="container mx-auto"> */}
       <div className="flex min-h-[200px] flex-col justify-between gap-8 max-[1280px]:px-6 max-md:px-6 md:flex-row">
         {/* Sticky Sidebar */}
-        <div className="sticky -top-1 h-fit w-full max-w-[500px] pt-[87px] max-md:self-center min-[900px]:h-[494px]">
-          <p className="font-inter mb-4 w-fit rounded-full border-[1px] border-[#C7EB00] px-2 py-[2px] text-xs leading-[130%] font-medium text-[#809E00] lg:text-sm">
+        <div className="sticky -top-1 h-fit w-full max-w-[500px] pt-[87px] max-[550px]:flex max-[550px]:flex-col max-[550px]:items-center max-md:self-center min-[1050px]:h-[494px]">
+          <p className="font-inter mb-4 w-fit rounded-full border-[1px] border-[#C7EB00] px-2 py-[2px] text-xs leading-[130%] font-medium text-[#809E00] max-[550px]:text-center lg:text-sm">
             PERFECT FOR YOUR STORE
           </p>
-          <p className="font-montserrat mb-4 text-lg leading-[140%] font-semibold tracking-[-1%] text-[#1A1C1E] md:text-xl lg:text-[28px] xl:text-[32px]">
+          <p className="font-montserrat mb-4 text-lg leading-[140%] font-semibold tracking-[-1%] text-[#1A1C1E] max-[550px]:text-center max-[483px]:mb-6 min-[850px]:text-xl md:text-base lg:text-[28px] xl:text-[32px]">
             Swap products. <br />
             Keep the model details.
             <br />
             Consistency made simple.
           </p>
-          <p className="font-inter text-sm leading-[150%] font-normal text-[#292C2E] lg:text-base">
+          <p className="font-inter max-w-[311px] text-sm leading-[150%] font-normal text-[#292C2E] max-[550px]:text-center min-[420px]:max-w-[373px] min-[550px]:max-w-[435px] lg:text-base">
             Upload one image of your model, then replace only the product, a
             shirt, shoes, or accessory, while keeping everything else intact.
             Perfect for e-commerce, stores, lookbooks, or A/B testing product
@@ -51,19 +51,16 @@ const SwapProductFeature = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="mx-auto max-w-[498px] min-[900px]:max-w-[614px]">
+        <div className="mx-auto w-full min-[420px]:max-w-[373px] min-[483px]:max-w-[435px] min-[550px]:max-w-[498px] min-[1050px]:max-w-[614px]">
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="sticky top-9 mx-auto flex aspect-[614/494] h-[400px] max-w-full flex-col rounded-lg pt-12 max-[900px]:top-30 min-[900px]:-top-1 min-[900px]:h-[494px]"
+              className="sticky top-36 mx-auto flex aspect-[614/494] h-[250px] max-w-full flex-col rounded-lg pt-12 min-[420px]:h-[300px] min-[483px]:top-30 min-[483px]:h-[350px] min-[550px]:h-[400px] min-[1050px]:-top-1 min-[1050px]:h-[494px] md:top-9"
             >
-              {/* <h3 className="mb-4 text-xl font-semibold">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p> */}
-
               <div className="flex h-full w-full">
                 <div className="h-full w-full rounded-br-md"></div>
 
-                <div className="relative ml-auto flex h-full min-w-[100px] flex-1 items-center justify-center rounded-t-md min-[900px]:min-w-[151px] min-[900px]:p-0">
+                <div className="relative ml-auto flex h-full min-w-[100px] flex-1 items-center justify-center rounded-t-md min-[1050px]:min-w-[151px] min-[1050px]:p-0">
                   <div className="absolute inset-0 z-10 h-full w-full bg-transparent"></div>
                   <div className="relative z-20 flex h-full w-full items-center justify-center rounded-t-md bg-white max-[900px]:px-2 max-[900px]:py-1">
                     <span className="font-inter text-sm leading-[130%] font-semibold">
