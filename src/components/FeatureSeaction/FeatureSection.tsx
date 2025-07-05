@@ -84,7 +84,7 @@ const FeatureSection = () => {
                   </p>
                 </div>
 
-                <div className="mx-auto flex flex-wrap justify-center gap-3">
+                <div className="mx-auto flex flex-wrap justify-center gap-3 px-2">
                   {imageVariation.map(({ imageUrl, text }, i) => (
                     <div
                       key={i}
