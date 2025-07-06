@@ -1,5 +1,6 @@
 import DynamicPanels from "@/components/DynamicPanels/DynamicPanels";
 import FeatureSection from "@/components/FeatureSection/FeatureSection";
+import Footer from "@/components/Footer/Footer";
 import Hero from "@/components/Hero/Hero";
 import Navbar from "@/components/Navbar/Navbar";
 import PricingSection from "@/components/PricingSection/PricingSection";
@@ -19,6 +20,7 @@ const Home = () => {
       <DynamicPanels />
       <SwapProductFeature />
       <PricingSection />
+      <Footer />
     </div>
   );
 };
