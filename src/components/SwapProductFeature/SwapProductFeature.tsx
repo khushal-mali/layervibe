@@ -54,7 +54,7 @@ const SwapProductFeature = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="mx-auto w-full min-[420px]:max-w-[373px] min-[483px]:max-w-[435px] min-[550px]:max-w-[498px] min-[1050px]:max-w-[614px]">
+        <div className="w-full max-md:mx-auto min-[420px]:max-w-[373px] min-[483px]:max-w-[435px] min-[550px]:max-w-[498px] min-[1050px]:max-w-[614px]">
           {features.map((feature) => (
             <div
               key={feature.id}

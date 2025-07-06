@@ -1,7 +1,8 @@
 import DynamicPanels from "@/components/DynamicPanels/DynamicPanels";
-import FeatureSection from "@/components/FeatureSeaction/FeatureSection";
+import FeatureSection from "@/components/FeatureSection/FeatureSection";
 import Hero from "@/components/Hero/Hero";
 import Navbar from "@/components/Navbar/Navbar";
+import PricingSection from "@/components/PricingSection/PricingSection";
 import SwapProductFeature from "@/components/SwapProductFeature/SwapProductFeature";
 import VideoSection from "@/components/VideoSection/VideoSection";
 
@@ -17,6 +18,7 @@ const Home = () => {
       <FeatureSection />
       <DynamicPanels />
       <SwapProductFeature />
+      <PricingSection />
     </div>
   );
 };
