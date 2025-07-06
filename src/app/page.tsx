@@ -19,8 +19,10 @@ const Home = () => {
       <FeatureSection />
       <DynamicPanels />
       <SwapProductFeature />
-      <PricingSection />
-      <Footer />
+      <div className="overflow-hidden">
+        <PricingSection />
+        <Footer />
+      </div>
     </div>
   );
 };

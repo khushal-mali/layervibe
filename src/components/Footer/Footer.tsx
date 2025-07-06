@@ -4,7 +4,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="mt-16 border-t-1 border-[#E6E8EA] py-10 max-[1250px]:px-6 min-[820px]:mt-24">
+    <div className="relative mt-16 border-t-1 border-[#E6E8EA] py-10 max-[1250px]:px-6 min-[820px]:mt-24">
+      <div className="absolute -top-10 right-0 z-0 h-[80px] w-[80px] translate-x-1/2 animate-[skew-glow_4s_ease-in_infinite] rounded-full bg-[#DFFF19] opacity-95 blur-[25px] min-[800px]:-top-32 min-[800px]:bottom-10 min-[800px]:h-[124px] min-[800px]:w-[124px]"></div>
       <div className="mx-auto flex max-w-[1250px] flex-col items-center justify-between gap-6 min-[820px]:flex-row min-[820px]:gap-0">
         <Link href={"/"}>
           <Image src={"/logo.svg"} alt="logo" width={133} height={20} />
