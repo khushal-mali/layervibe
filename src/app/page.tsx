@@ -9,7 +9,7 @@ import VideoSection from "@/components/VideoSection/VideoSection";
 
 const Home = () => {
   return (
-    <div className="mb-[1000px] min-h-screen bg-[#F7F8F8]">
+    <div className="min-h-screen bg-[#F7F8F8]">
       <Navbar />
       <div className="min-h-screen overflow-hidden">
         <Hero />

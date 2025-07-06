@@ -9,7 +9,7 @@ const Footer = () => {
 
         <div className="flex flex-col items-center gap-4 min-[820px]:flex-row">
           <p className="font-inter text-sm leading-[130%] font-normal text-[#363B3F]">
-            All rights reserved. 2025
+            © 2025. All rights reserved.
           </p>
           <span className="hidden h-1 w-1 rounded-full bg-[#DEE1E3] min-[820px]:inline-block" />
           <p className="font-inter text-sm leading-[130%] font-normal text-[#363B3F] underline">
