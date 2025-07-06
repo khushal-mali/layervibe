@@ -1,22 +1,25 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
   return (
     <div className="mt-16 border-t-1 border-[#E6E8EA] py-10 max-[1250px]:px-6 min-[820px]:mt-24">
       <div className="mx-auto flex max-w-[1250px] flex-col items-center justify-between gap-6 min-[820px]:flex-row min-[820px]:gap-0">
-        <Image src={"/logo.svg"} alt="logo" width={133} height={20} />
+        <Link href={"/"}>
+          <Image src={"/logo.svg"} alt="logo" width={133} height={20} />
+        </Link>
 
         <div className="flex flex-col items-center gap-4 min-[820px]:flex-row">
           <p className="font-inter text-sm leading-[130%] font-normal text-[#363B3F]">
             © 2025. All rights reserved.
           </p>
           <span className="hidden h-1 w-1 rounded-full bg-[#DEE1E3] min-[820px]:inline-block" />
-          <p className="font-inter text-sm leading-[130%] font-normal text-[#363B3F] underline">
+          <p className="font-inter cursor-pointer text-sm leading-[130%] font-normal text-[#363B3F] underline">
             Terms of Use & Privacy Policy
           </p>
           <span className="hidden h-1 w-1 rounded-full bg-[#DEE1E3] min-[820px]:inline-block" />
-          <p className="font-inter text-sm leading-[130%] font-normal text-[#363B3F]">
+          <p className="font-inter cursor-pointer text-sm leading-[130%] font-normal text-[#363B3F]">
             Contact us
           </p>
         </div>
