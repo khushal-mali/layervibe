@@ -1,5 +1,6 @@
 import React from "react";
 import AnimatedTabs from "./AnimatedTabs";
+import BillingToggle from "./BillingToggle";
 
 const PricingSection = () => {
   return (
@@ -7,10 +8,10 @@ const PricingSection = () => {
       <div className="flex flex-col gap-6">
         {/* Title */}
         <div className="flex flex-col gap-4">
-          <h3 className="font-montserrat bg-blue-300 text-center text-2xl leading-[120%] font-semibold tracking-[-1%] text-[#1A1C1E]">
+          <h3 className="font-montserrat text-center text-2xl leading-[120%] font-semibold tracking-[-1%] text-[#1A1C1E]">
             Our prices
           </h3>
-          <p className="font-inter bg-pink-400 text-center leading-[150%] text-[#292C2E]">
+          <p className="font-inter text-center leading-[150%] text-[#292C2E]">
             We have the ideal plan for your needs, whether by subscription or
             one-time purchases.
           </p>
@@ -19,7 +20,8 @@ const PricingSection = () => {
         {/* Tabs (Subscriptions/Tokens_packs) */}
         <AnimatedTabs />
 
-        
+        {/* Billing Toggle (Monthly/Yearly) */}
+        <BillingToggle />
       </div>
     </div>
   );
