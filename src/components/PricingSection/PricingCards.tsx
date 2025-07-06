@@ -7,6 +7,7 @@ const SubscriptionPlans = [
     name: "Basic plan",
     price: "$ 3",
     priceBeforeDiscount: "$ 5",
+    priceColored: false,
     period: "Per month",
     description: "Ideal for light users.",
     features: ["30 Tokens", "4 Masks by image", "8 Quick rendering free"],
@@ -22,6 +23,7 @@ const SubscriptionPlans = [
     id: 2,
     name: "Standard plan",
     price: "$ 5,99",
+    priceColored: false,
     priceBeforeDiscount: "$ 12,99",
     period: "One time only",
     description: "Ideal for regular creators.",
@@ -38,6 +40,7 @@ const SubscriptionPlans = [
     id: 3,
     name: "Premium plan",
     price: "$ 8,99",
+    priceColored: true,
     priceBeforeDiscount: "$ 18",
     period: "One time only",
     description: "For professionals and high-volume users.",
@@ -57,6 +60,7 @@ const tokenPackPlans = [
     id: 1,
     name: "Starter",
     price: "Free",
+    priceColored: false,
     priceBeforeDiscount: false,
     period: "One time only",
     description: "Initial plan for testing.",
@@ -73,6 +77,7 @@ const tokenPackPlans = [
     id: 2,
     name: "Pack of 6 tokens",
     price: "$ 2",
+    priceColored: false,
     period: "One time only",
     priceBeforeDiscount: false,
     description: "Initial plan for testing.",
@@ -90,6 +95,7 @@ const tokenPackPlans = [
     name: "Pack of 10 tokens",
     description: "Ideal for specific needs.",
     price: "$ 4",
+    priceColored: false,
     period: "One time only",
     priceBeforeDiscount: false,
     features: ["10 Tokens", "2 Masks by image", "4 Quick rendering free"],
@@ -105,6 +111,7 @@ const tokenPackPlans = [
     id: 4,
     name: "Pack of 20 tokens",
     price: "$ 6",
+    priceColored: false,
     period: "One time only",
     priceBeforeDiscount: false,
     description: "Ideal for specific needs.",
@@ -134,77 +141,102 @@ const PricingCards = ({
       {plans.map((plan) => (
         <div
           key={plan.id}
-          className="flex w-full max-w-[408px] min-w-[200px] flex-col gap-4 rounded-[12px] border-[1px] border-[#E6E8EA] bg-[#F1F3F3] p-6"
+          className={cn(
+            "relative flex w-full max-w-[408px] min-w-[200px] flex-col gap-4 rounded-[12px] p-6",
+            plan.borderGradient
+              ? // ? "bg-gradient-to-tl from-[#C7EB00] via-[#A8D600] to-[#708B00] p-[1px]"
+                "bg-[linear-gradient(to_top_left,_#D8FF00,_#C7EB00_25%,_#A8D600_50%,_#8BAC00_75%,_#708B00)] p-[1px]"
+              : "border-[1px] border-[#E6E8EA] bg-[#F1F3F3]",
+          )}
         >
-          {/* Logo & Badge */}
-          <div className="flex items-center justify-between">
-            <div className="relative rounded-[8px] bg-[#DEE1E3] p-2">
-              <Image src={plan.icon} alt="basic plan" height={24} width={24} />
-            </div>
-
-            {plan.badge && (
-              <div className="flex items-center justify-center rounded-[4px] bg-[#F8FF90] px-2 py-1">
-                <span className="font-inter text-xs leading-[150%] font-medium text-[#809E00]">
-                  {plan.badge}
-                </span>
-              </div>
-            )}
-          </div>
-
-          {/* Plan Info */}
-          <div className="flex flex-col gap-0.5">
-            <h4 className="font-inter leading-[150%] font-medium">
-              {plan.name}
-            </h4>
-            <p className="font-inter text-sm leading-[130%] font-normal">
-              {plan.description}
-            </p>
-          </div>
-
-          {/* Price Info */}
-          <div className="flex flex-col">
-            {isYearly && plan?.priceBeforeDiscount && (
-              <div className="font-inter text-xs leading-[150%] font-normal text-[#5E686E] line-through">
-                {plan.priceBeforeDiscount}
-              </div>
-            )}
-            <div className="font-inter text-3xl leading-[150%] font-bold text-[#131416]">
-              {plan.price}
-            </div>
-            <div className="font-inter text-xs leading-[150%] font-normal text-[#5E686E]">
-              {plan.period}
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-3 pb-4">
-            {plan.features.map((feature) => (
-              <div key={feature} className="flex items-center gap-2">
-                <Image
-                  src={"/pricing-tick-icon.svg"}
-                  alt="tick"
-                  width={20}
-                  height={20}
-                />
-                <p className="font-inter text-sm leading-[130%] font-normal text-[#292C2E]">
-                  {feature}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <button
+          {/* Inner content wrapper for gradient border cards */}
+          <div
             className={cn(
-              "font-inter cursor-pointer rounded-[8px] border-[1px] py-3 text-base leading-[150%] font-medium",
-              plan.buttonfilled
-                ? "border-[#C7EB00] bg-[#C7EB00] text-black hover:bg-[#cceb00b7]"
-                : "border-[#708B00] bg-[#F1F3F3] text-[#708B00] hover:bg-[#f0f3f3]",
+              plan.borderGradient
+                ? "flex flex-1 flex-col gap-4 rounded-[10px] bg-[#F1F3F3] p-6"
+                : "contents",
             )}
           >
-            Buy now
-          </button>
+            {/* Logo & Badge */}
+            <div className="flex items-center justify-between">
+              <div className="relative rounded-[8px] bg-[#DEE1E3] p-2">
+                <Image
+                  src={plan.icon}
+                  alt="basic plan"
+                  height={24}
+                  width={24}
+                />
+              </div>
 
-          <div className="font-inter text-sm leading-[130%] font-normal text-[#292C2E]">
-            {plan.tokenExpiry}
+              {plan.badge && (
+                <div className="flex items-center justify-center rounded-[4px] bg-[#F8FF90] px-2 py-1">
+                  <span className="font-inter text-xs leading-[150%] font-medium text-[#809E00]">
+                    {plan.badge}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* Plan Info */}
+            <div className="flex flex-col gap-0.5">
+              <h4 className="font-inter leading-[150%] font-medium">
+                {plan.name}
+              </h4>
+              <p className="font-inter text-sm leading-[130%] font-normal">
+                {plan.description}
+              </p>
+            </div>
+
+            {/* Price Info */}
+            <div className="flex flex-col">
+              {isYearly && plan?.priceBeforeDiscount && (
+                <div className="font-inter text-xs leading-[150%] font-normal text-[#5E686E] line-through">
+                  {plan.priceBeforeDiscount}
+                </div>
+              )}
+              <div
+                className={cn(
+                  "font-inter text-3xl leading-[150%] font-bold",
+                  plan.priceColored ? "text-[#809E00]" : "text-[#131416]",
+                )}
+              >
+                {plan.price}
+              </div>
+              <div className="font-inter text-xs leading-[150%] font-normal text-[#5E686E]">
+                {plan.period}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3 pb-4">
+              {plan.features.map((feature) => (
+                <div key={feature} className="flex items-center gap-2">
+                  <Image
+                    src={"/pricing-tick-icon.svg"}
+                    alt="tick"
+                    width={20}
+                    height={20}
+                  />
+                  <p className="font-inter text-sm leading-[130%] font-normal text-[#292C2E]">
+                    {feature}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <button
+              className={cn(
+                "font-inter cursor-pointer rounded-[8px] border-[1px] py-3 text-base leading-[150%] font-medium",
+                plan.buttonfilled
+                  ? "border-[#C7EB00] bg-[#C7EB00] text-black hover:bg-[#cceb00b7]"
+                  : "border-[#708B00] bg-[#F1F3F3] text-[#708B00] hover:bg-[#f0f3f3]",
+              )}
+            >
+              Buy now
+            </button>
+
+            <div className="font-inter text-sm leading-[130%] font-normal text-[#292C2E]">
+              {plan.tokenExpiry}
+            </div>
           </div>
         </div>
       ))}
