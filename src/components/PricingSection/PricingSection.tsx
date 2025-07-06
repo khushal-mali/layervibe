@@ -3,6 +3,7 @@ import { useState } from "react";
 import AnimatedTabs from "./AnimatedTabs";
 import BillingToggle from "./BillingToggle";
 import PricingCards from "./PricingCards";
+import TokensPricing from "./TokensPricing";
 
 const tabs = [
   { id: "subscriptions", label: "Subscriptions" },
@@ -42,6 +43,9 @@ const PricingSection = () => {
         {/* <PricingCards1 /> */}
 
         <PricingCards activeTab={activeTab} isYearly={isYearly} />
+
+        {/* Token Pricing */}
+        <TokensPricing />
       </div>
     </div>
   );
