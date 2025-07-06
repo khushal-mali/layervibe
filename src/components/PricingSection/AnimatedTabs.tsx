@@ -1,15 +1,19 @@
 "use client";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
-const tabs = [
-  { id: "subscriptions", label: "Subscriptions" },
-  { id: "tokens_packs", label: "Tokens packs" },
-];
-
-function AnimatedTabs() {
-  const [activeTab, setActiveTab] = useState(tabs[0].id);
-
+function AnimatedTabs({
+  activeTab,
+  setActiveTab,
+  tabs,
+}: {
+  activeTab: string;
+  setActiveTab: Dispatch<SetStateAction<string>>;
+  tabs: {
+    id: string;
+    label: string;
+  }[];
+}) {
   return (
     <div className="mx-auto flex max-w-[250px] space-x-1 rounded-[8px] bg-[#E6E8EA] px-1 py-0.5">
       {tabs.map((tab) => (

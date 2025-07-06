@@ -1,8 +1,18 @@
-import React from "react";
+"use client";
+import { useState } from "react";
 import AnimatedTabs from "./AnimatedTabs";
 import BillingToggle from "./BillingToggle";
+import PricingCards from "./PricingCards";
+
+const tabs = [
+  { id: "subscriptions", label: "Subscriptions" },
+  { id: "tokens_packs", label: "Tokens packs" },
+];
 
 const PricingSection = () => {
+  const [isYearly, setIsYearly] = useState<boolean>(true);
+  const [activeTab, setActiveTab] = useState(tabs[0].id);
+
   return (
     <div className="container mx-auto max-w-[1250px] py-11 max-xl:px-6">
       <div className="flex flex-col gap-6">
@@ -18,10 +28,20 @@ const PricingSection = () => {
         </div>
 
         {/* Tabs (Subscriptions/Tokens_packs) */}
-        <AnimatedTabs />
+        <AnimatedTabs
+          tabs={tabs}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
 
         {/* Billing Toggle (Monthly/Yearly) */}
-        <BillingToggle />
+        {activeTab === "subscriptions" && (
+          <BillingToggle isYearly={isYearly} setIsYearly={setIsYearly} />
+        )}
+
+        {/* <PricingCards1 /> */}
+
+        <PricingCards activeTab={activeTab} isYearly={isYearly} />
       </div>
     </div>
   );

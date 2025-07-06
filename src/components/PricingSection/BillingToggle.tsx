@@ -1,9 +1,13 @@
 "use client";
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
-export default function BillingToggle() {
-  const [isYearly, setIsYearly] = useState(false);
-
+export default function BillingToggle({
+  isYearly,
+  setIsYearly,
+}: {
+  isYearly: boolean;
+  setIsYearly: Dispatch<SetStateAction<boolean>>;
+}) {
   const handleToggle = () => {
     setIsYearly((prev) => !prev);
   };
