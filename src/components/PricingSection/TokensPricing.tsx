@@ -35,7 +35,7 @@ const TokensPricing = () => {
         <div className="flex justify-between border-b-[1px] border-[#DEE1E3] px-2 py-4 min-[450px]:py-8 md:px-6">
           <div className="flex items-center gap-2">
             <Image
-              src={"/token-pricing-edited-image.svg"}
+              src={"/token-pricing-quick-rendering.svg"}
               height={20}
               width={20}
               alt="icon"
@@ -52,7 +52,7 @@ const TokensPricing = () => {
         <div className="flex justify-between border-b-[1px] border-[#DEE1E3] px-2 py-4 min-[450px]:py-8 md:px-6">
           <div className="flex items-center gap-2">
             <Image
-              src={"/token-pricing-edited-image.svg"}
+              src={"/token-pricing-mask-icon.svg"}
               height={20}
               width={20}
               alt="icon"
