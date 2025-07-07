@@ -9,9 +9,8 @@ const VideoSection = () => {
   const handleReplay = () => {
     const video = videoRef.current;
     if (video) {
-      video.pause(); // Stop current playback
-      video.currentTime = 0; // Reset to beginning
-      video.play(); // Start playing again
+      video.currentTime = 0; // Reset to start
+      video.play(); // Play again even if looping
     }
   };
 
@@ -29,6 +28,7 @@ const VideoSection = () => {
           ref={videoRef}
           autoPlay
           muted
+          loop
           controls
           className="relative z-20 h-full w-full rounded-xl object-cover"
           src="/Image To Video Ai Free Tool.mp4"
