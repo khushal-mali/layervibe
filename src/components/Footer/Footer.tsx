@@ -3,6 +3,12 @@ import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
+  const email = "atlanticolabs@gmail.com";
+  const subject = encodeURIComponent("Support Request");
+  const body = encodeURIComponent(
+    "Hi AtlanticoLabs team,\n\nI need help with...",
+  );
+
   return (
     <div className="relative mt-20 border-t-1 border-[#E6E8EA] py-10 max-[1250px]:px-6 min-[820px]:mt-30">
       <div className="absolute -top-8 right-0 z-40 h-[80px] w-[80px] translate-x-1/2 rounded-full bg-[#DFFF19] min-[800px]:-top-24 min-[800px]:bottom-10 min-[800px]:h-[124px] min-[800px]:w-[124px]"></div>
@@ -24,9 +30,12 @@ const Footer = () => {
             Terms of Use & Privacy Policy
           </Link>
           <span className="hidden h-1 w-1 rounded-full bg-[#DEE1E3] min-[820px]:inline-block" />
-          <p className="font-inter cursor-pointer text-sm leading-[130%] font-normal text-[#363B3F]">
+          <Link
+            href={`mailto:${email}?subject=${subject}&body=${body}`}
+            className="font-inter cursor-pointer text-sm leading-[130%] font-normal text-[#363B3F] hover:underline"
+          >
             Contact us
-          </p>
+          </Link>
         </div>
 
         <div className="flex gap-2.5">
