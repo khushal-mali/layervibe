@@ -4,6 +4,7 @@ import { constructMetadata } from "@/lib/utils";
 import LenisProvider from "@/components/Lenis/LenisProvider";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const fontInter = Inter({
   variable: "--font-inter",
@@ -34,6 +35,7 @@ export default function RootLayout({
           <div className="overflow-x-hidden">
             <Footer />
           </div>
+          <Toaster />
         </body>
       </LenisProvider>
     </html>
