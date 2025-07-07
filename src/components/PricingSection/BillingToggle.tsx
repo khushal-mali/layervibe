@@ -27,7 +27,7 @@ export default function BillingToggle({
           checked={isYearly}
           onChange={handleToggle}
         />
-        <div className="peer h-5 w-10 rounded-full bg-[#E4F65A] peer-checked:bg-[#C7EB00] after:absolute after:start-[2px] after:top-[2px] after:h-[15.5px] after:w-4.5 after:rounded-full after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full"></div>
+        <div className="peer h-5 w-10 rounded-full bg-[#E6E8EA] peer-checked:bg-[#C7EB00] after:absolute after:start-[2px] after:top-[2px] after:h-[15.5px] after:w-4.5 after:rounded-full after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full"></div>
       </label>
 
       {/* Labels */}
