@@ -230,10 +230,10 @@ const PricingCards = ({
 
             <button
               className={cn(
-                "font-inter cursor-pointer rounded-[8px] border-[1px] py-3 text-base leading-[150%] font-medium",
+                "font-inter cursor-pointer rounded-[8px] py-3 text-base leading-[150%] font-medium",
                 plan.buttonfilled
-                  ? "border-[#C7EB00] bg-[#C7EB00] text-black hover:bg-[#cceb00b7]"
-                  : "border-[#708B00] bg-[#F1F3F3] text-[#708B00] hover:bg-[#f0f3f3]",
+                  ? "bg-[#C7EB00] text-black hover:bg-[#edff50]"
+                  : "border-[1px] border-[#708B00] bg-[#F1F3F3] text-[#708B00] hover:bg-[#f7f8f8]",
               )}
             >
               Buy now
