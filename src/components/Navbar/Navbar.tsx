@@ -14,7 +14,9 @@ const Navbar = () => {
   return (
     <nav className="fixed top-4 right-[50%] z-[999] mx-auto flex w-[300px] translate-x-1/2 items-center justify-between rounded-lg border-[1px] border-white bg-white px-6 py-4 font-medium text-gray-800 shadow-sm min-[400px]:w-[350px] min-[550px]:w-[500px] sm:w-[630px] md:w-[700px]">
       <div className="flex items-center">
-        <Image src={"/logo.svg"} alt="logo" width={133} height={20} />
+        <Link href={"/"}>
+          <Image src={"/logo.svg"} alt="logo" width={133} height={20} />
+        </Link>
       </div>
       <div className="hidden items-center space-x-5 sm:flex">
         <div className="flex items-center gap-x-1">

@@ -4,8 +4,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="relative mt-16 border-t-1 border-[#E6E8EA] py-10 max-[1250px]:px-6 min-[820px]:mt-24">
-      <div className="absolute -top-10 right-0 z-0 h-[80px] w-[80px] translate-x-1/2 animate-[skew-glow_4s_ease-in_infinite] rounded-full bg-[#DFFF19] opacity-95 blur-[25px] min-[800px]:-top-32 min-[800px]:bottom-10 min-[800px]:h-[124px] min-[800px]:w-[124px]"></div>
+    <div className="relative mt-20 border-t-1 border-[#E6E8EA] py-10 max-[1250px]:px-6 min-[820px]:mt-30">
+      <div className="absolute -top-8 right-0 z-40 h-[80px] w-[80px] translate-x-1/2 animate-[skew-glow_4s_ease-in_infinite] rounded-full bg-[#DFFF19] opacity-95 blur-[25px] min-[800px]:-top-24 min-[800px]:bottom-10 min-[800px]:h-[124px] min-[800px]:w-[124px]"></div>
+
       <div className="mx-auto flex max-w-[1250px] flex-col items-center justify-between gap-6 min-[820px]:flex-row min-[820px]:gap-0">
         <Link href={"/"}>
           <Image src={"/logo.svg"} alt="logo" width={133} height={20} />
@@ -16,9 +17,12 @@ const Footer = () => {
             © 2025. All rights reserved.
           </p>
           <span className="hidden h-1 w-1 rounded-full bg-[#DEE1E3] min-[820px]:inline-block" />
-          <p className="font-inter cursor-pointer text-sm leading-[130%] font-normal text-[#363B3F] underline">
+          <Link
+            href={"/privacy-policy"}
+            className="font-inter cursor-pointer text-sm leading-[130%] font-normal text-[#363B3F] underline"
+          >
             Terms of Use & Privacy Policy
-          </p>
+          </Link>
           <span className="hidden h-1 w-1 rounded-full bg-[#DEE1E3] min-[820px]:inline-block" />
           <p className="font-inter cursor-pointer text-sm leading-[130%] font-normal text-[#363B3F]">
             Contact us
