@@ -39,11 +39,18 @@ const PrivacyPolicy = () => {
 
         <div className="mx-auto flex max-w-[700px] flex-col">
           <Sentence>
-            Welcome to the Terms of Service (these “Terms”) for the website,
-            www.layervibe.io (the “Website”). (“Company”, “we” or “us”). The
-            Website, Playground and Flux, and any content, tools, features and
-            functionality offered on or through our Website, Layervibe are
-            collectively referred in these Terms as the “Services”.
+            Welcome to the Terms of Service (these “Terms”) for the website,{" "}
+            <Link
+              target="_blank"
+              className="cursor-pointer hover:underline hover:opacity-90"
+              href={"https://layervibe.io"}
+            >
+              www.layervibe.io
+            </Link>{" "}
+            (the “Website”). (“Company”, “we” or “us”). The Website, Playground
+            and Flux, and any content, tools, features and functionality offered
+            on or through our Website, Layervibe are collectively referred in
+            these Terms as the “Services”.
           </Sentence>
 
           <Sentence>
