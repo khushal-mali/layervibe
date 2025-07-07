@@ -1,8 +1,8 @@
 "use client";
 import { MenuIcon, MenuSquareIcon } from "lucide-react";
-import Link from "next/link";
-import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 
 const NavMenu = ({
@@ -15,6 +15,8 @@ const NavMenu = ({
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const pathName = usePathname();
 
   function toggleMenu() {
     setIsMenuOpen((prev) => !prev);
@@ -75,9 +77,32 @@ const NavMenu = ({
                     transition: { delay: index * 0.1, duration: 0.2 },
                   }}
                 >
-                  <Link href={link.href} className="hover:underline">
+                  <span
+                    onClick={() => {
+                      if (link.href.includes("#")) {
+                        if (pathName === "/") {
+                          const sectionId = link.href.replace("/#", "");
+                          const section = document.getElementById(sectionId);
+                          section?.scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          router.push(link.href);
+                        }
+                      } else if (link.href === "/") {
+                        if (pathName === "/") {
+                          window?.scrollTo({ top: 0, behavior: "smooth" });
+                        } else {
+                          router.push("/");
+                        }
+                      } else {
+                        router.push(link.href);
+                      }
+
+                      setIsMenuOpen(false);
+                    }}
+                    className="text-[#292C2E] hover:text-[#292C2E]/85 hover:underline"
+                  >
                     {link.title}
-                  </Link>
+                  </span>
                 </motion.li>
               ))}
             </ul>

@@ -1,6 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 import NavMenu from "./NavMenu";
 
@@ -11,8 +12,11 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const router = useRouter();
+  const pathName = usePathname();
+
   return (
-    <nav className="fixed top-4 right-[50%] z-[999] mx-auto flex w-[300px] translate-x-1/2 items-center justify-between rounded-lg border-[1px] border-white bg-white px-6 py-4 font-medium text-gray-800 shadow-sm min-[400px]:w-[350px] min-[550px]:w-[500px] sm:w-[630px] md:w-[700px]">
+    <nav className="fixed top-4 right-[50%] z-[999] mx-auto flex w-[300px] translate-x-1/2 items-center justify-between rounded-lg border-[1px] border-white bg-white px-6 py-4 font-medium shadow-sm min-[400px]:w-[350px] min-[550px]:w-[500px] sm:w-[630px] md:w-[700px]">
       <div className="flex items-center">
         <Link href={"/"}>
           <Image src={"/logo.svg"} alt="logo" width={133} height={20} />
@@ -21,9 +25,31 @@ const Navbar = () => {
       <div className="hidden items-center space-x-5 sm:flex">
         <div className="flex items-center gap-x-1">
           {navLinks.map((link, i) => (
-            <Link href={link.href} className="px-2.5" key={i}>
+            <span
+              onClick={() => {
+                if (link.href.includes("#")) {
+                  if (pathName === "/") {
+                    const sectionId = link.href.replace("/#", "");
+                    const section = document.getElementById(sectionId);
+                    section?.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    router.push(link.href);
+                  }
+                } else if (link.href === "/") {
+                  if (pathName === "/") {
+                    window?.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    router.push("/");
+                  }
+                } else {
+                  router.push(link.href);
+                }
+              }}
+              className="cursor-pointer px-2.5 text-[#292C2E] hover:text-[#292C2E]/85"
+              key={i}
+            >
               {link.title}
-            </Link>
+            </span>
           ))}
         </div>
         <div className="space-x-2">
