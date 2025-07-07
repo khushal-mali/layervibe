@@ -30,7 +30,7 @@ const SwapProductFeature = () => {
   return (
     <section
       id="features"
-      className="mx-auto max-w-[1250px] pt-0 pb-24 md:pt-32 md:pb-[180px]"
+      className="mx-auto max-w-[1250px] pt-0 pb-15 md:pt-32 md:pb-18"
     >
       {/* <div className="container mx-auto"> */}
       <div className="flex min-h-[200px] flex-col justify-between gap-8 max-[1280px]:px-6 max-md:px-6 md:flex-row">

@@ -17,7 +17,7 @@ const PricingSection = () => {
   return (
     <section
       id="pricing"
-      className="container mx-auto max-w-[1250px] pt-11 pb-2 max-xl:px-6"
+      className="container mx-auto max-w-[1250px] pt-20 pb-2 max-xl:px-6 md:pt-26"
     >
       <div className="flex flex-col gap-6">
         {/* Title */}
