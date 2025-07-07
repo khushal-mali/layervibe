@@ -15,7 +15,10 @@ const PricingSection = () => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   return (
-    <div className="container mx-auto max-w-[1250px] pt-11 pb-2 max-xl:px-6">
+    <section
+      id="pricing"
+      className="container mx-auto max-w-[1250px] pt-11 pb-2 max-xl:px-6"
+    >
       <div className="flex flex-col gap-6">
         {/* Title */}
         <div className="flex flex-col gap-4">
@@ -47,7 +50,7 @@ const PricingSection = () => {
         {/* Token Pricing */}
         <TokensPricing />
       </div>
-    </div>
+    </section>
   );
 };
 

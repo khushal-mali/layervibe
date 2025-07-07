@@ -6,7 +6,7 @@ import NavMenu from "./NavMenu";
 
 const navLinks = [
   { title: "Home", href: "/" },
-  { title: "Pricing", href: "#pricing" },
+  { title: "Pricing", href: "/#pricing" },
   { title: "Explore", href: "/explore" },
 ];
 
