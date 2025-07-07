@@ -188,7 +188,12 @@ const PricingCards = ({
             </div>
 
             {/* Price Info */}
-            <div className="flex flex-col">
+            <div
+              className={cn(
+                "flex flex-col",
+                isYearly && plan?.priceBeforeDiscount ? "py-0" : "py-[9px]",
+              )}
+            >
               {isYearly && plan?.priceBeforeDiscount && (
                 <div className="font-inter text-xs leading-[150%] font-normal text-[#5E686E] line-through">
                   {plan.priceBeforeDiscount}
