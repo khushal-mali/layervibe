@@ -22,12 +22,6 @@ const HeroImageAnimation = () => {
 
   const screenWidth = width!;
 
-  console.log(
-    "HeroImageAnimation:",
-    new Error().stack?.split("\n")[1].trim(),
-    screenWidth,
-  );
-
   useEffect(() => {
     const animationSequence = async () => {
       while (true) {
@@ -62,12 +56,12 @@ const HeroImageAnimation = () => {
                 screenWidth > 1200 ? -170 : screenWidth > 1000 ? -130 : -80,
               ],
             },
-            { duration: 0.4 },
+            { duration: 0.6 },
           ],
           [
             "#hero-animation-image-preprocessed",
             { opacity: [0, 1] },
-            { duration: 0.4 },
+            { duration: 0.6 },
           ],
           ["#hero-animation-1", { opacity: 0 }],
         ]);
@@ -80,7 +74,7 @@ const HeroImageAnimation = () => {
             {
               x: screenWidth > 1200 ? -135 : -95,
             },
-            { duration: 0.4, ease: "easeIn" },
+            { duration: 0.6, ease: "easeIn" },
           ],
         ]);
 
@@ -88,14 +82,14 @@ const HeroImageAnimation = () => {
           [
             "#hero-animation-image-preprocessed",
             { opacity: 0 },
-            { duration: 0.4, delay: 0.6 + 0.2 },
+            { duration: 0.6, delay: 0.6 + 0.2 },
           ], // Waits 0.5s (move) + 0.2s (stay)
         ]);
         await animate([
           [
             "#hero-animation-image-postprocessed",
             { opacity: 1 },
-            { duration: 0.4 },
+            { duration: 0.6 },
           ],
         ]);
 
@@ -103,7 +97,7 @@ const HeroImageAnimation = () => {
           [
             "#hero-animation-image-postprocessed",
             { x: screenWidth > 1200 ? -140 : -100 },
-            { duration: 0.4, delay: 0.4 + 0.2 },
+            { duration: 0.6, delay: 0.6 + 0.2 },
           ],
         ]);
 
