@@ -121,7 +121,7 @@ const tokenPackPlans = [
     gradient: false,
     buttonText: "Buy now",
     buttonfilled: true,
-    borderGradient: false,
+    borderGradient: true, // Added animated border to this plan too
     tokenExpiry: "Tokens expire in 15 days",
   },
 ];
@@ -142,18 +142,22 @@ const PricingCards = ({
         <div
           key={plan.id}
           className={cn(
-            "relative flex w-full max-w-[408px] min-w-[200px] flex-col gap-4 rounded-[12px] p-6",
+            "relative flex w-full max-w-[408px] min-w-[200px] flex-1 flex-col gap-4 overflow-hidden rounded-[12px]",
             plan.borderGradient
-              ? // ? "bg-gradient-to-tl from-[#C7EB00] via-[#A8D600] to-[#708B00] p-[1px]"
-                "bg-[linear-gradient(to_top_left,_#D8FF00,_#C7EB00_25%,_#A8D600_50%,_#8BAC00_75%,_#708B00)] p-[1px]"
-              : "border-[1px] border-[#E6E8EA] bg-[#F1F3F3]",
+              ? "relative p-[1px] focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 focus:outline-none"
+              : "border-[1px] border-[#E6E8EA] bg-[#F1F3F3] p-6",
           )}
         >
+          {/* Animated border background for premium cards */}
+          {plan.borderGradient && (
+            <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#D8FF00_0%,#C7EB00_25%,#A8D600_50%,#8BAC00_75%,#708B00_100%)]" />
+          )}
+
           {/* Inner content wrapper for gradient border cards */}
           <div
             className={cn(
               plan.borderGradient
-                ? "flex flex-1 flex-col gap-4 rounded-[10px] bg-[#F1F3F3] p-6"
+                ? "relative flex flex-1 flex-col gap-4 rounded-[10px] bg-[#F1F3F3] p-6 backdrop-blur-3xl"
                 : "contents",
             )}
           >
@@ -230,13 +234,13 @@ const PricingCards = ({
 
             <button
               className={cn(
-                "font-inter cursor-pointer rounded-[8px] py-3 text-base leading-[150%] font-medium",
+                "font-inter cursor-pointer rounded-[8px] py-3 text-base leading-[150%] font-medium transition-colors duration-200",
                 plan.buttonfilled
                   ? "bg-[#C7EB00] text-black hover:bg-[#edff50]"
                   : "border-[1px] border-[#708B00] bg-[#F1F3F3] text-[#708B00] hover:bg-[#f7f8f8]",
               )}
             >
-              Buy now
+              {plan.buttonText}
             </button>
 
             <div className="font-inter text-sm leading-[130%] font-normal text-[#292C2E]">
