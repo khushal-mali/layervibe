@@ -1,9 +1,22 @@
-"use client";
 import MasonryGrid from "@/components/Explore/MasonryGrid";
-import ExploreSearchComponent from "./ExploreSearchComponent";
+import ExploreSearchComponent from "@/components/Explore/ExploreSearchComponent";
+
+const imageUrls: string[] = [
+  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg",
+];
 
 const ExplorePage = () => {
-
   return (
     <div className="container mx-auto max-w-[1250px] pt-35 pb-10 max-xl:px-6 sm:pb-20 md:pt-45">
       <div className="flex flex-col gap-6">
@@ -18,7 +31,7 @@ const ExplorePage = () => {
 
         <ExploreSearchComponent />
 
-        <MasonryGrid />
+        <MasonryGrid imageUrls={imageUrls} />
       </div>
     </div>
   );
