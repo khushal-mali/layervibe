@@ -175,57 +175,69 @@ const HeroImageAnimation = () => {
 
         <div
           id="hero-animation-image-postprocessed"
-          className="z-20 h-[200px] w-[158px] -translate-y-1 rounded-md opacity-0 min-[1200px]:h-[290px] min-[1200px]:w-[229px] min-[1200px]:-translate-y-0"
+          className="z-20 h-[200px] w-[158px] -translate-y-1 rounded-md opacity-100 min-[1200px]:h-[290px] min-[1200px]:w-[229px] min-[1200px]:-translate-y-0"
         >
-          <AnimatePresence mode="sync">
-            {currentStep !== "3. Turn into video" ? (
-              <AspectRatio
-                ratio={290 / 229}
-                key="postprocessed-image"
-                className="h-[200px] w-[158px] rounded-md min-[1200px]:h-[290px] min-[1200px]:w-[229px]"
-              >
-                <Image
-                  fill
-                  src={"/hero-animation-image-postprocessed.png"}
-                  alt="Drop your image file"
-                  priority
-                  className="rounded-md"
-                />
-              </AspectRatio>
-            ) : (
-              <AspectRatio
-                key="postprocessed-video"
-                ratio={290 / 229}
-                className="relative h-[200px] w-[158px] min-[1200px]:h-[290px] min-[1200px]:w-[229px]"
-              >
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  preload="auto" // Preload the video
-                  src="/hero-animation-image-postprocessed-mp4.mp4"
-                  className="h-full w-full rounded-md object-cover"
-                  onError={() => console.error("Failed to load video")}
-                  aria-label="Post-processed animation video"
-                ></video>
+          <AspectRatio
+            ratio={290 / 229}
+            className="relative h-[200px] w-[158px] rounded-md min-[1200px]:h-[290px] min-[1200px]:w-[229px]"
+          >
+            {/* Image Layer */}
+            <motion.div
+              initial={{ opacity: 1 }}
+              animate={{
+                opacity: currentStep !== "3. Turn into video" ? 1 : 0,
+              }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0"
+            >
+              <Image
+                fill
+                src="/hero-animation-image-postprocessed.png"
+                alt="Drop your image file"
+                priority
+                className="rounded-md"
+              />
+            </motion.div>
 
-                <div
-                  id="hero-animation-pause"
-                  className="absolute right-3 bottom-3 z-30 h-8 w-8"
-                >
-                  <Image
-                    src={"/hero-animation-pause.svg"}
-                    fill
-                    priority
-                    style={{
-                      opacity: currentStep === "3. Turn into video" ? 1 : 0,
-                    }}
-                    alt="Pause symbol"
-                  />
-                </div>
-              </AspectRatio>
-            )}
-          </AnimatePresence>
+            {/* Video Layer */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: currentStep === "3. Turn into video" ? 1 : 0,
+              }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0"
+            >
+              <video
+                autoPlay
+                muted
+                loop
+                src="/hero-animation-image-postprocessed-mp4.mp4"
+                className="h-full w-full rounded-md object-cover"
+                onError={() => console.error("Failed to load video")}
+                aria-label="Post-processed animation video"
+                preload="auto" // Preload the video
+              />
+            </motion.div>
+
+            {/* Pause Icon */}
+            <motion.div
+              id="hero-animation-pause"
+              className="absolute right-3 bottom-3 z-30 h-8 w-8"
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: currentStep === "3. Turn into video" ? 1 : 0,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src="/hero-animation-pause.svg"
+                fill
+                priority
+                alt="Pause symbol"
+              />
+            </motion.div>
+          </AspectRatio>
         </div>
       </div>
 
