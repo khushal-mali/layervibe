@@ -202,6 +202,7 @@ const HeroImageAnimation = () => {
                   autoPlay
                   muted
                   loop
+                  preload="auto" // Preload the video
                   src="/hero-animation-image-postprocessed-mp4.mp4"
                   className="h-full w-full rounded-md object-cover"
                   onError={() => console.error("Failed to load video")}
