@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion, useAnimate } from "motion/react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AspectRatio } from "../ui/aspect-ratio";
 import useWindowSize from "@/hooks/useWindowSize";
 
@@ -18,6 +18,7 @@ const HeroImageAnimation = () => {
     (typeof animationSteps)[number]
   >(animationSteps[0]);
   const [scope, animate] = useAnimate();
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const { width } = useWindowSize();
 
   const screenWidth = width!;
@@ -102,12 +103,16 @@ const HeroImageAnimation = () => {
         ]);
 
         setCurrentStep(() => "3. Turn into video");
-        // await animate([
-        //   ["#hero-animation-pause", { opacity: 1 }, { delay: 0.1 }],
-        // ]);
+        if (videoRef.current) {
+          videoRef?.current.play();
+        }
 
         // Pause before restarting
-        await new Promise((resolve) => setTimeout(resolve, 2500));
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+        if (videoRef.current) {
+          videoRef.current.currentTime = 0;
+          videoRef.current.pause();
+        }
       }
     };
 
@@ -209,8 +214,8 @@ const HeroImageAnimation = () => {
               className="absolute inset-0"
             >
               <video
-                autoPlay
                 muted
+                ref={videoRef}
                 loop
                 src="/hero-animation-image-postprocessed-mp4.mp4"
                 className="h-full w-full rounded-md object-cover"
