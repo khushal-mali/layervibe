@@ -82,7 +82,7 @@ const HeroImageAnimation = () => {
           [
             "#hero-animation-image-preprocessed",
             { opacity: 0 },
-            { duration: 0.6, delay: 0.6 + 0.2 },
+            { duration: 0.6, delay: 0.6 },
           ], // Waits 0.5s (move) + 0.2s (stay)
         ]);
         await animate([
@@ -97,7 +97,7 @@ const HeroImageAnimation = () => {
           [
             "#hero-animation-image-postprocessed",
             { x: screenWidth > 1200 ? -140 : -100 },
-            { duration: 0.6, delay: 0.6 + 0.2 },
+            { duration: 0.6, delay: 0.6 },
           ],
         ]);
 
