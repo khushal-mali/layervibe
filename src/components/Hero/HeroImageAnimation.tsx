@@ -256,7 +256,7 @@ const HeroImageAnimation = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4, ease: "easeIn" }}
-                className="font-inter rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] max-[800px]:self-start min-[1200px]:-translate-y-2 min-[1200px]:self-auto min-[1200px]:text-base"
+                className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
               >
                 Before
               </motion.div>
@@ -266,7 +266,7 @@ const HeroImageAnimation = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4, ease: "easeIn" }}
-                className="font-inter rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] max-[800px]:self-start min-[1200px]:-translate-y-2 min-[1200px]:self-auto min-[1200px]:text-base"
+                className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
               >
                 After
               </motion.div>
@@ -280,7 +280,7 @@ const HeroImageAnimation = () => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4, ease: "easeIn" }}
-              className="font-inter rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] font-medium max-[800px]:self-start min-[1200px]:-translate-y-2 min-[1200px]:self-auto min-[1200px]:text-base"
+              className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] font-medium min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
             >
               Video created by image edited ✨
             </motion.div>
