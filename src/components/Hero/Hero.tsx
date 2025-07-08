@@ -1,4 +1,3 @@
-import { Button } from "../ui/button";
 import HeroImageAnimation from "./HeroImageAnimation";
 
 const Hero = () => {
@@ -18,9 +17,9 @@ const Hero = () => {
             importante details.
           </p>
 
-          <Button className="w-fit cursor-pointer rounded-[10px] bg-[#C7EB00] px-6 py-3 leading-[150%] font-medium uppercase">
+          <button className="w-fit cursor-pointer rounded-[10px] bg-[#C7EB00] px-6 py-3 leading-[150%] font-medium uppercase hover:bg-[#edff50]">
             GET STARTED FREE
-          </Button>
+          </button>
         </div>
       </div>
     </div>
