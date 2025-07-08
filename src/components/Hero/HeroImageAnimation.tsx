@@ -293,7 +293,7 @@ const HeroImageAnimation = () => {
           <React.Fragment key={index}>
             <p
               className={cn(
-                "font-inter text-xs leading-[130%] font-medium text-nowrap transition-colors duration-300 ease-in-out min-[1200px]:text-sm",
+                "font-inter text-xs leading-[130%] font-medium text-nowrap transition-colors duration-100 ease-in-out min-[1200px]:text-sm",
                 currentStep === step ? "text-[#C7EB00]" : "text-[#363B3F]",
               )}
             >
