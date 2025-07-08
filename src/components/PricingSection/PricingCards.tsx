@@ -147,8 +147,12 @@ const PricingCards = ({
           )}
         >
           {/* Animated border background for premium cards */}
-          {plan.borderGradient && (
+          {/* {plan.borderGradient && (
             <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#D8FF00_0%,#C7EB00_25%,#A8D600_50%,#8BAC00_75%,#708B00_100%)]" />
+          )} */}
+
+          {plan.borderGradient && (
+            <span className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FAFFD1_0%,#F4FFC2_5%,#ECFF99_10%,#E6F98D_15%,#DCFF45_20%,#D8FF00_25%,#CFF000_30%,#C7EB00_35%,#B9E000_40%,#B2D800_45%,#A6CC00_50%,#9ABE00_55%,#8BAC00_60%,#7F9F00_65%,#7A9800_70%,#708B00_75%,#6A7F00_80%,#637600_85%,#5F7300_90%,#586A00_95%,#FAFFD1_100%)]" />
           )}
 
           <div
