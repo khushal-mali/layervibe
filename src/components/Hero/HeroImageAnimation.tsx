@@ -56,12 +56,12 @@ const HeroImageAnimation = () => {
                 screenWidth > 1200 ? -170 : screenWidth > 1000 ? -130 : -80,
               ],
             },
-            { duration: 0.6 },
+            { duration: 0.4 },
           ],
           [
             "#hero-animation-image-preprocessed",
             { opacity: [0, 1] },
-            { duration: 0.6 },
+            { duration: 0.4 },
           ],
           ["#hero-animation-1", { opacity: 0 }],
         ]);
@@ -74,7 +74,7 @@ const HeroImageAnimation = () => {
             {
               x: screenWidth > 1200 ? -135 : -95,
             },
-            { duration: 0.6, ease: "easeIn" },
+            { duration: 0.4, ease: "easeIn" },
           ],
         ]);
 
@@ -82,14 +82,14 @@ const HeroImageAnimation = () => {
           [
             "#hero-animation-image-preprocessed",
             { opacity: 0 },
-            { duration: 0.6, delay: 0.6 },
-          ], // Waits 0.5s (move) + 0.2s (stay)
+            { duration: 0.4, delay: 0.4 },
+          ], // Waits 0.4s (move)
         ]);
         await animate([
           [
             "#hero-animation-image-postprocessed",
             { opacity: 1 },
-            { duration: 0.6 },
+            { duration: 0.4 },
           ],
         ]);
 
@@ -97,7 +97,7 @@ const HeroImageAnimation = () => {
           [
             "#hero-animation-image-postprocessed",
             { x: screenWidth > 1200 ? -140 : -100 },
-            { duration: 0.6, delay: 0.6 },
+            { duration: 0.4, delay: 0.4 },
           ],
         ]);
 
@@ -162,7 +162,7 @@ const HeroImageAnimation = () => {
 
         <AspectRatio
           ratio={290 / 229}
-          className="z-20 h-[200px] w-[158px] translate-x-8 -translate-y-4 overflow-hidden rounded-md opacity-0 min-[1200px]:h-[290px] min-[1200px]:w-[229px] min-[1200px]:translate-x-12"
+          className="z-20 h-[200px] w-[158px] translate-x-8 -translate-y-4 overflow-hidden rounded-md opacity-0 shadow-md min-[1200px]:h-[290px] min-[1200px]:w-[229px] min-[1200px]:translate-x-12"
           id="hero-animation-image-preprocessed"
         >
           <Image
@@ -175,7 +175,7 @@ const HeroImageAnimation = () => {
 
         <div
           id="hero-animation-image-postprocessed"
-          className="z-20 h-[200px] w-[158px] -translate-y-1 rounded-md opacity-100 min-[1200px]:h-[290px] min-[1200px]:w-[229px] min-[1200px]:-translate-y-0"
+          className="z-20 h-[200px] w-[158px] -translate-y-1 rounded-md opacity-100 shadow-md min-[1200px]:h-[290px] min-[1200px]:w-[229px] min-[1200px]:-translate-y-0"
         >
           <AspectRatio
             ratio={290 / 229}
@@ -283,7 +283,7 @@ const HeroImageAnimation = () => {
         </AnimatePresence>
       </div>
 
-      <div className="absolute right-1/2 bottom-0 z-50 flex translate-x-1/2 items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm shadow-[#1015770D] min-[1200px]:gap-3">
+      <div className="absolute right-1/2 bottom-0 z-50 flex translate-x-1/2 items-center gap-2 rounded-full bg-white px-4 py-2 shadow-md shadow-[#1015770D] min-[1200px]:gap-3">
         {animationSteps.map((step, index) => (
           <React.Fragment key={index}>
             <p
