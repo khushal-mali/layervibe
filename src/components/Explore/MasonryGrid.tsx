@@ -1,10 +1,11 @@
 import { SquarePen, Star } from "lucide-react";
 import React from "react";
 import { Button } from "../ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 const MasonryGrid: React.FC<{ imageUrls: string[] }> = ({ imageUrls }) => {
   return (
-    <div className="bg-gray-50 p-4">
+    <div className="bg-gray-50">
       <div className="columns-2 gap-1 space-y-1 md:columns-3">
         {imageUrls.map((url, index) => (
           <div
@@ -22,8 +23,10 @@ const MasonryGrid: React.FC<{ imageUrls: string[] }> = ({ imageUrls }) => {
                 <div className="flex w-full items-end justify-between gap-2">
                   {/* Text content - takes up available space */}
                   <div className="min-w-0 flex-1 pr-2">
-                    <p className="mb-1 text-xs text-gray-300">Prompt:</p>
-                    <p className="line-clamp-2 text-sm break-words text-white">
+                    <p className="font-inter mb-1 text-xs text-[#eee]">
+                      Prompt:
+                    </p>
+                    <p className="font-inter line-clamp-2 text-sm break-words text-white">
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Consequuntur quas tenetur
                     </p>
@@ -31,20 +34,38 @@ const MasonryGrid: React.FC<{ imageUrls: string[] }> = ({ imageUrls }) => {
 
                   {/* Buttons - fixed width */}
                   <div className="flex flex-shrink-0 gap-1">
-                    <Button
-                      size="icon"
-                      className="border-gray-400 bg-transparent hover:bg-white/10 max-sm:size-7"
-                      variant="outline"
-                    >
-                      <Star className="h-4 w-4 text-white" />
-                    </Button>
-                    <Button
-                      size="icon"
-                      variant="outline"
-                      className="border-gray-400 bg-transparent hover:bg-white/10 max-sm:size-7"
-                    >
-                      <SquarePen className="h-4 w-4 text-white" />
-                    </Button>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Button
+                          size="icon"
+                          className="border border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20 max-sm:size-7"
+                          variant="outline"
+                        >
+                          <Star className="h-4 w-4 text-white" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent className="font-inter mb-1.5 bg-white text-black">
+                        <p className="font-inter text-sm max-sm:text-xs">
+                          Favorite Image
+                        </p>
+                      </TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Button
+                          size="icon"
+                          className="border border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20 max-sm:size-7"
+                          variant="outline"
+                        >
+                          <SquarePen className="h-4 w-4 text-white" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent className="mb-1.5 bg-white text-black">
+                        <p className="font-inter text-sm max-sm:text-xs">
+                          Edit Image
+                        </p>
+                      </TooltipContent>
+                    </Tooltip>
                   </div>
                 </div>
               </div>

@@ -82,7 +82,7 @@ const Navbar = () => {
         <div className="space-x-2">
           <Button
             size={"sm"}
-            className="border border-[#E6E8EA] bg-[#F1F3F3] hover:bg-[#dadcdc]"
+            className="border border-[#E6E8EA] text-[#292C2E] bg-[#F1F3F3] hover:bg-[#dadcdc]"
           >
             Log in
           </Button>

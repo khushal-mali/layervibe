@@ -124,7 +124,7 @@ const NavMenu = ({
             >
               <Button
                 size={"sm"}
-                className="border border-[#E6E8EA] bg-[#F1F3F3] hover:bg-[#dadcdc]"
+                className="border border-[#E6E8EA] bg-[#F1F3F3] text-[#292C2E] hover:bg-[#dadcdc]"
               >
                 Log in
               </Button>
