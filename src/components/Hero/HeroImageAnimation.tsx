@@ -61,12 +61,12 @@ const HeroImageAnimation = () => {
             },
             { duration: 0.4 },
           ],
+          ["#hero-animation-1", { opacity: 0 }, { duration: 0.2, delay: 0.5 }],
           [
             "#hero-animation-image-preprocessed",
             { opacity: [0, 1] },
             { duration: 0.4 },
           ],
-          ["#hero-animation-1", { opacity: 0 }],
         ]);
 
         setCurrentStep(() => "2. Edit image");
