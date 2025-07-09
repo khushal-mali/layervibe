@@ -43,7 +43,7 @@ const HeroImageAnimation = () => {
         ]);
 
         setCurrentStep(() => "1. Select image");
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1500));
 
         await animate([
           [

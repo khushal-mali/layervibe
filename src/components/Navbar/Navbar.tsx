@@ -11,6 +11,28 @@ const navLinks = [
   { title: "Explore", href: "/explore" },
 ];
 
+// Custom smooth scroll function with adjustable duration
+export const smoothScroll = (targetY: number, duration: number): void => {
+  const startY: number = window.scrollY;
+  const distance: number = targetY - startY;
+  let startTime: number | null = null;
+
+  const animation = (currentTime: number): void => {
+    if (!startTime) startTime = currentTime;
+    const timeElapsed: number = currentTime - startTime;
+    const progress: number = Math.min(timeElapsed / duration, 1); // Cap progress at 1
+    const ease = (t: number): number => t * t * (3 - 2 * t); // Ease-in-out function
+
+    window.scrollTo(0, startY + distance * ease(progress));
+
+    if (timeElapsed < duration) {
+      requestAnimationFrame(animation);
+    }
+  };
+
+  requestAnimationFrame(animation);
+};
+
 const Navbar = () => {
   const router = useRouter();
   const pathName = usePathname();
@@ -30,14 +52,19 @@ const Navbar = () => {
                 if (link.href.includes("#")) {
                   if (pathName === "/") {
                     const sectionId = link.href.replace("/#", "");
-                    const section = document.getElementById(sectionId);
-                    section?.scrollIntoView({ behavior: "smooth" });
+                    const section: HTMLElement | null =
+                      document.getElementById(sectionId);
+                    if (section) {
+                      const targetY: number =
+                        section.getBoundingClientRect().top + window.scrollY;
+                      smoothScroll(targetY, 1500); // 1.5 seconds for slow scroll
+                    }
                   } else {
                     router.push(link.href);
                   }
                 } else if (link.href === "/") {
                   if (pathName === "/") {
-                    window?.scrollTo({ top: 0, behavior: "smooth" });
+                    smoothScroll(0, 1500); // Slow scroll to top
                   } else {
                     router.push("/");
                   }

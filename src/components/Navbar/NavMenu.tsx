@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
+import { smoothScroll } from "./Navbar";
 
 const NavMenu = ({
   navLinks,
@@ -82,14 +83,20 @@ const NavMenu = ({
                       if (link.href.includes("#")) {
                         if (pathName === "/") {
                           const sectionId = link.href.replace("/#", "");
-                          const section = document.getElementById(sectionId);
-                          section?.scrollIntoView({ behavior: "smooth" });
+                          const section: HTMLElement | null =
+                            document.getElementById(sectionId);
+                          if (section) {
+                            const targetY: number =
+                              section.getBoundingClientRect().top +
+                              window.scrollY;
+                            smoothScroll(targetY, 1500); // 1.5 seconds for slow scroll
+                          }
                         } else {
                           router.push(link.href);
                         }
                       } else if (link.href === "/") {
                         if (pathName === "/") {
-                          window?.scrollTo({ top: 0, behavior: "smooth" });
+                          smoothScroll(0, 1500); // Slow scroll to top
                         } else {
                           router.push("/");
                         }
