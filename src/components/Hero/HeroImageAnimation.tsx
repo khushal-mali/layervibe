@@ -89,20 +89,20 @@ const HeroImageAnimation = () => {
           ],
         ]);
 
-        await animate([
+        animate([
           [
-            "#hero-animation-image-preprocessed",
-            { opacity: 0 },
-            { duration: 0.4, delay: 0.2, ease: "easeIn" },
-          ], // Waits 0.4s (move)
+            "#hero-animation-image-postprocessed",
+            { x: screenWidth > 1200 ? -140 : -100 },
+            { duration: 0.4, delay: 0.3, ease: "easeIn" },
+          ],
         ]);
 
         await animate([
           [
-            "#hero-animation-image-postprocessed",
-            { x: screenWidth > 1200 ? -140 : -100 },
-            { duration: 0.4, ease: "easeIn" },
-          ],
+            "#hero-animation-image-preprocessed",
+            { opacity: 0 },
+            { duration: 0.4, delay: 0.3, ease: "easeIn" },
+          ], // Waits 0.4s (move)
         ]);
 
         setCurrentStep(() => "3. Turn into video");
@@ -261,7 +261,7 @@ const HeroImageAnimation = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, ease: "easeIn" }}
+                transition={{ duration: 0.2, ease: "easeIn" }}
                 className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
               >
                 Before
@@ -271,7 +271,7 @@ const HeroImageAnimation = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, ease: "easeIn" }}
+                transition={{ duration: 0.2, ease: "easeIn" }}
                 className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
               >
                 After
@@ -285,7 +285,7 @@ const HeroImageAnimation = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.4, ease: "easeIn" }}
+              transition={{ duration: 0.2, ease: "easeIn" }}
               className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] font-medium min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
             >
               Video created by image edited ✨
