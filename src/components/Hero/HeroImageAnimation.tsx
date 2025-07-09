@@ -231,7 +231,7 @@ const HeroImageAnimation = () => {
               <video
                 muted
                 ref={videoRef}
-                preload="none"
+                // preload="none"
                 playsInline
                 controls={false}
                 // loop
