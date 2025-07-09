@@ -117,7 +117,7 @@ const HeroImageAnimation = () => {
         }
 
         // Pause before restarting
-        await new Promise((resolve) => setTimeout(resolve, 5000));
+        await new Promise((resolve) => setTimeout(resolve, 6000));
         if (videoRef.current) {
           videoRef.current.currentTime = 0;
           videoRef.current.pause();
@@ -234,7 +234,7 @@ const HeroImageAnimation = () => {
                 preload="none"
                 playsInline
                 controls={false}
-                loop
+                // loop
                 src="/hero-animation-image-postprocessed-mp4.mp4"
                 className="pointer-events-none h-full w-full rounded-md object-cover"
                 onError={() => console.error("Failed to load video")}
