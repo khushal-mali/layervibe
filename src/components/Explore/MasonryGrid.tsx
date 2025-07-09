@@ -1,4 +1,6 @@
+import { SquarePen, Star } from "lucide-react";
 import React from "react";
+import { Button } from "../ui/button";
 
 const MasonryGrid: React.FC<{ imageUrls: string[] }> = ({ imageUrls }) => {
   return (
@@ -13,29 +15,34 @@ const MasonryGrid: React.FC<{ imageUrls: string[] }> = ({ imageUrls }) => {
             alt={`Gallery image ${index + 1}`}
             className="z-0 w-full break-inside-avoid rounded-md transition-transform duration-300 ease-in-out group-hover:scale-105"
           />
-          {/* <div className="absolute bottom-0 flex h-1/3 w-full translate-y-full items-end truncate bg-gradient-to-b from-transparent to-[#000] text-sm opacity-60 transition-transform duration-300 ease-in-out group-hover:translate-y-0">
-            <div className="flex items-center gap-1 px-4 pb-4">
-              <p className="font-inter text-sm text-[#eaeced]">Prompt: </p>{" "}
-              <p className="w-2/5 truncate text-white">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Consequuntur quas tenetur
-              </p>
-              <Button
-                size={"icon"}
-                className="border-[#999] bg-transparent"
-                variant={"outline"}
-              >
-                <Star className="text-white" />
-              </Button>
-              <Button
-                size={"icon"}
-                variant={"outline"}
-                className="border-[#999] bg-transparent"
-              >
-                <SquarePen className="text-white" />
-              </Button>
+          <div className="absolute bottom-0 flex h-1/3 w-full translate-y-full items-end truncate bg-gradient-to-b from-transparent to-[#000] text-sm opacity-60 transition-transform duration-300 ease-in-out group-hover:translate-y-0">
+            <div className="flex items-end justify-between gap-1 px-4 pb-4">
+              <div className="w-1/2 shrink">
+                <p className="font-inter text-sm text-[#eaeced]">Prompt: </p>{" "}
+                <p className="truncate text-white">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Consequuntur quas tenetur
+                </p>
+              </div>
+
+              <div className="w-1/2 flex-1 shrink-0">
+                <Button
+                  size={"icon"}
+                  className="border-[#999] bg-transparent"
+                  variant={"outline"}
+                >
+                  <Star className="text-white" />
+                </Button>
+                <Button
+                  size={"icon"}
+                  variant={"outline"}
+                  className="border-[#999] bg-transparent"
+                >
+                  <SquarePen className="text-white" />
+                </Button>
+              </div>
             </div>
-          </div> */}
+          </div>
         </div>
       ))}
     </div>
