@@ -71,7 +71,7 @@ const HeroImageAnimation = () => {
 
         setCurrentStep(() => "2. Edit image");
 
-        await animate([
+        animate([
           [
             "#hero-animation-image-preprocessed",
             {
@@ -81,26 +81,27 @@ const HeroImageAnimation = () => {
           ],
         ]);
 
-        animate([
-          [
-            "#hero-animation-image-preprocessed",
-            { opacity: 0 },
-            { duration: 0.4, delay: 0.4 },
-          ], // Waits 0.4s (move)
-        ]);
         await animate([
           [
             "#hero-animation-image-postprocessed",
             { opacity: 1 },
-            { duration: 0.4 },
+            { duration: 0.4, delay: 0.1, ease: "easeIn" },
           ],
+        ]);
+
+        await animate([
+          [
+            "#hero-animation-image-preprocessed",
+            { opacity: 0 },
+            { duration: 0.4, delay: 0.2, ease: "easeIn" },
+          ], // Waits 0.4s (move)
         ]);
 
         await animate([
           [
             "#hero-animation-image-postprocessed",
             { x: screenWidth > 1200 ? -140 : -100 },
-            { duration: 0.4, delay: 0.4 },
+            { duration: 0.4, ease: "easeIn" },
           ],
         ]);
 
