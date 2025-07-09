@@ -231,15 +231,13 @@ const HeroImageAnimation = () => {
               <video
                 muted
                 ref={videoRef}
-                // preload="none"
+                preload="none"
                 playsInline
                 controls={false}
-                // loop
                 src="/hero-animation-image-postprocessed-mp4.mp4"
                 className="pointer-events-none h-full w-full rounded-md object-cover"
                 onError={() => console.error("Failed to load video")}
                 aria-label="Post-processed animation video"
-                // preload="auto" // Preload the video
               />
             </motion.div>
 
