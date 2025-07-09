@@ -97,6 +97,12 @@ const HeroImageAnimation = () => {
           ],
         ]);
 
+        new Promise(() =>
+          setTimeout(() => {
+            setCurrentStep(() => "3. Turn into video");
+          }, 500),
+        );
+
         await animate([
           [
             "#hero-animation-image-preprocessed",
@@ -105,8 +111,8 @@ const HeroImageAnimation = () => {
           ], // Waits 0.4s (move)
         ]);
 
-        setCurrentStep(() => "3. Turn into video");
         if (videoRef.current) {
+          await new Promise((resolve) => setTimeout(resolve, 500));
           videoRef?.current.play();
         }
 
@@ -195,7 +201,10 @@ const HeroImageAnimation = () => {
               animate={{
                 opacity: currentStep !== "3. Turn into video" ? 1 : 0,
               }}
-              transition={{ duration: 0.3 }}
+              transition={{
+                duration: 0.3,
+                delay: currentStep === "3. Turn into video" ? 0.4 : 0, // adjust delay as needed
+              }}
               className="absolute inset-0"
             >
               <Image
@@ -213,7 +222,10 @@ const HeroImageAnimation = () => {
               animate={{
                 opacity: currentStep === "3. Turn into video" ? 1 : 0,
               }}
-              transition={{ duration: 0.3 }}
+              transition={{
+                duration: 0.3,
+                delay: currentStep === "3. Turn into video" ? 0.4 : 0, // adjust delay as needed
+              }}
               className="absolute inset-0"
             >
               <video
