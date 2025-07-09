@@ -186,7 +186,7 @@ const HeroImageAnimation = () => {
         >
           <AspectRatio
             ratio={290 / 229}
-            className="relative h-[200px] w-[158px] rounded-md min-[1200px]:h-[290px] min-[1200px]:w-[229px]"
+            className="pointer-events-none relative h-[200px] w-[158px] rounded-md min-[1200px]:h-[290px] min-[1200px]:w-[229px]"
           >
             {/* Image Layer */}
             <motion.div
@@ -218,12 +218,14 @@ const HeroImageAnimation = () => {
               <video
                 muted
                 ref={videoRef}
+                preload="none"
+                playsInline
                 loop
                 src="/hero-animation-image-postprocessed-mp4.mp4"
-                className="h-full w-full rounded-md object-cover"
+                className="pointer-events-none h-full w-full rounded-md object-cover"
                 onError={() => console.error("Failed to load video")}
                 aria-label="Post-processed animation video"
-                preload="auto" // Preload the video
+                // preload="auto" // Preload the video
               />
             </motion.div>
 
