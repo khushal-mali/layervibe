@@ -93,6 +93,8 @@ const HeroImageAnimation = () => {
           ],
         ]);
 
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
         animate([
           [
             "#hero-animation-image-postprocessed",
