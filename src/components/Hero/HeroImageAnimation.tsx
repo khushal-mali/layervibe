@@ -45,6 +45,10 @@ const HeroImageAnimation = () => {
         setCurrentStep(() => "1. Select image");
         await new Promise((resolve) => setTimeout(resolve, 1500));
 
+        if (videoRef.current) {
+          videoRef.current.currentTime = 0;
+        }
+
         await animate([
           [
             "#hero-animation-1",
@@ -119,8 +123,8 @@ const HeroImageAnimation = () => {
         // Pause before restarting
         await new Promise((resolve) => setTimeout(resolve, 6000));
         if (videoRef.current) {
-          videoRef.current.currentTime = 0;
           videoRef.current.pause();
+          await new Promise((resolve) => setTimeout(resolve, 500));
         }
       }
     };
@@ -203,7 +207,7 @@ const HeroImageAnimation = () => {
               }}
               transition={{
                 duration: 0.3,
-                delay: currentStep === "3. Turn into video" ? 0.4 : 0, // adjust delay as needed
+                delay: currentStep === "3. Turn into video" ? 0.5 : 0, // adjust delay as needed
               }}
               className="absolute inset-0"
             >
@@ -231,7 +235,6 @@ const HeroImageAnimation = () => {
               <video
                 muted
                 ref={videoRef}
-                preload="none"
                 playsInline
                 controls={false}
                 src="/hero-animation-image-postprocessed-mp4.mp4"
