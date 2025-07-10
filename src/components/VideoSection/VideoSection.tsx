@@ -27,6 +27,7 @@ const VideoSection = () => {
           <video
             ref={videoRef}
             autoPlay
+            playsInline
             muted
             loop
             controls
