@@ -11,37 +11,37 @@ const DynamicPanels = () => {
     {
       id: 1,
       title: "Edit packages",
-      imageUrl: "/dynamic-panal-1.png",
+      imageUrl: "/dynamic-panal-1.webp",
       bgColor: "bg-blue-500",
     },
     {
       id: 2,
       title: "Edit casual photography",
-      imageUrl: "/dynamic-panal-2.png",
+      imageUrl: "/dynamic-panal-2.webp",
       bgColor: "bg-blue-600",
     },
     {
       id: 3,
       title: "Edit mockups",
-      imageUrl: "/dynamic-panal-3.png",
+      imageUrl: "/dynamic-panal-3.webp",
       bgColor: "bg-blue-700",
     },
     {
       id: 4,
       title: "Edit clothes",
-      imageUrl: "/dynamic-panal-4.png",
+      imageUrl: "/dynamic-panal-4.webp",
       bgColor: "bg-blue-800",
     },
     {
       id: 5,
       title: "Edit backgrounds",
-      imageUrl: "/dynamic-panal-5.png",
+      imageUrl: "/dynamic-panal-5.webp",
       bgColor: "bg-blue-900",
     },
     {
       id: 6,
       title: "Edit products",
-      imageUrl: "/dynamic-panal-6.png",
+      imageUrl: "/dynamic-panal-6.webp",
       bgColor: "bg-indigo-600",
     },
   ];
