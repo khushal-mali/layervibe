@@ -238,7 +238,6 @@ const HeroImageAnimation = () => {
                 muted
                 ref={videoRef}
                 playsInline
-                controls={false}
                 src="/hero-animation-image-postprocessed-mp4.mp4"
                 className="pointer-events-none h-full w-full rounded-md object-cover"
                 onError={() => console.error("Failed to load video")}
