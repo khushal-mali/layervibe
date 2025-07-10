@@ -65,12 +65,12 @@ const HeroImageAnimation = () => {
             },
             { duration: 0.4 },
           ],
-          ["#hero-animation-1", { opacity: 0 }, { duration: 0.2, delay: 0.5 }],
           [
             "#hero-animation-image-preprocessed",
             { opacity: [0, 1] },
-            { duration: 0.4 },
+            { duration: 0.2, delay: 0.8 },
           ],
+          ["#hero-animation-1", { opacity: 0 }, { duration: 0.2 }],
         ]);
 
         setCurrentStep(() => "2. Edit image");
@@ -277,7 +277,7 @@ const HeroImageAnimation = () => {
                 // animate={{ opacity: 1, scale: 1 }}
                 // exit={{ opacity: 0, scale: 0.95 }}
                 // transition={{ duration: 0.2, ease: "easeIn" }}
-                className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
+                className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] shadow-xs min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
               >
                 Before
               </motion.div>
@@ -287,7 +287,7 @@ const HeroImageAnimation = () => {
                 // animate={{ opacity: 1, scale: 1 }}
                 // exit={{ opacity: 0, scale: 0.95 }}
                 // transition={{ duration: 0.2, ease: "easeIn" }}
-                className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
+                className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] shadow-xs min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
               >
                 After
               </motion.div>
@@ -302,7 +302,7 @@ const HeroImageAnimation = () => {
               // animate={{ opacity: 1, scale: 1 }}
               // exit={{ opacity: 0, scale: 0.95 }}
               // transition={{ duration: 0.2, ease: "easeIn" }}
-              className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] font-medium min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
+              className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] font-medium shadow-xs min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
             >
               Video created by image edited ✨
             </motion.div>
