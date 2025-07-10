@@ -118,6 +118,7 @@ const HeroImageAnimation = () => {
         ]);
 
         if (videoRef.current) {
+          videoRef.current.preload = "auto";
           await new Promise((resolve) => setTimeout(resolve, 500));
           videoRef?.current.play();
         }
@@ -182,12 +183,13 @@ const HeroImageAnimation = () => {
 
         <AspectRatio
           ratio={290 / 229}
-          className="z-20 h-[200px] w-[158px] translate-x-8 -translate-y-4 overflow-hidden rounded-md opacity-0 shadow-md min-[1200px]:h-[290px] min-[1200px]:w-[229px] min-[1200px]:translate-x-12"
+          className="z-20 h-[200px] w-[158px] translate-x-8 -translate-y-4 overflow-hidden rounded-md opacity-0 min-[1200px]:h-[290px] min-[1200px]:w-[229px] min-[1200px]:translate-x-12"
           id="hero-animation-image-preprocessed"
         >
           <Image
             fill
             priority
+            className="shadow-md"
             src={"/hero-animation-image-preprocessed.jpg"}
             alt="Drop your image file"
           />
@@ -195,15 +197,15 @@ const HeroImageAnimation = () => {
 
         <div
           id="hero-animation-image-postprocessed"
-          className="z-20 h-[200px] w-[158px] -translate-y-1 rounded-md opacity-100 shadow-md min-[1200px]:h-[290px] min-[1200px]:w-[229px] min-[1200px]:-translate-y-0"
+          className="z-20 h-[200px] w-[158px] -translate-y-1 rounded-md opacity-100 min-[1200px]:h-[290px] min-[1200px]:w-[229px] min-[1200px]:-translate-y-0"
         >
           <AspectRatio
             ratio={290 / 229}
-            className="pointer-events-none relative h-[200px] w-[158px] rounded-md min-[1200px]:h-[290px] min-[1200px]:w-[229px]"
+            className="pointer-events-none relative h-[200px] w-[158px] min-[1200px]:h-[290px] min-[1200px]:w-[229px]"
           >
             {/* Image Layer */}
             <motion.div
-              initial={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
               animate={{
                 opacity: currentStep !== "3. Turn into video" ? 1 : 0,
               }}
@@ -218,11 +220,12 @@ const HeroImageAnimation = () => {
                 src="/hero-animation-image-postprocessed.png"
                 alt="Drop your image file"
                 priority
-                className="rounded-md"
+                className="rounded-md shadow-md"
               />
             </motion.div>
 
             {/* Video Layer */}
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{
@@ -238,8 +241,9 @@ const HeroImageAnimation = () => {
                 muted
                 ref={videoRef}
                 playsInline
+                preload="none"
                 src="/hero-animation-image-postprocessed-mp4.mp4"
-                className="pointer-events-none h-full w-full rounded-md object-cover"
+                className="pointer-events-none h-full w-full rounded-md object-cover shadow-md"
                 onError={() => console.error("Failed to load video")}
                 aria-label="Post-processed animation video"
               />
