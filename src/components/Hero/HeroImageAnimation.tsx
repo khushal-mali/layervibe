@@ -273,20 +273,20 @@ const HeroImageAnimation = () => {
             <>
               <motion.div
                 key={"step 2.1"}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2, ease: "easeIn" }}
+                // initial={{ opacity: 0, scale: 0.95 }}
+                // animate={{ opacity: 1, scale: 1 }}
+                // exit={{ opacity: 0, scale: 0.95 }}
+                // transition={{ duration: 0.2, ease: "easeIn" }}
                 className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
               >
                 Before
               </motion.div>
               <motion.div
                 key={"step 2.2"}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2, ease: "easeIn" }}
+                // initial={{ opacity: 0, scale: 0.95 }}
+                // animate={{ opacity: 1, scale: 1 }}
+                // exit={{ opacity: 0, scale: 0.95 }}
+                // transition={{ duration: 0.2, ease: "easeIn" }}
                 className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
               >
                 After
@@ -297,10 +297,11 @@ const HeroImageAnimation = () => {
           {currentStep === "3. Turn into video" && (
             <motion.div
               key={"step 3"}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.2, ease: "easeIn" }}
+              // id="step-3-subtitle"
+              // initial={{ opacity: 0, scale: 0.95 }}
+              // animate={{ opacity: 1, scale: 1 }}
+              // exit={{ opacity: 0, scale: 0.95 }}
+              // transition={{ duration: 0.2, ease: "easeIn" }}
               className="font-inter self-start rounded-full border-[1px] border-[#DEE1E3] px-[10px] py-1 text-sm leading-[130%] font-medium min-[800px]:-translate-y-2 min-[800px]:self-auto min-[1200px]:text-base"
             >
               Video created by image edited ✨
